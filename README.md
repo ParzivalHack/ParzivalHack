@@ -1,4 +1,4 @@
-### Welcome to my Github! 
+### Welcome to my Github! <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
 - 🔭 I’m currently working on different pentesting tools.
 - 🌱 I’m currently learning Golang.
