@@ -20,7 +20,8 @@
 ![Raspberry Pi](https://img.shields.io/badge/-Raspberry%20Pi-C51A4A?style=flat-square&logo=Raspberry-Pi)
 ![Microsoft Word]
 ![Microsoft Excel]
-![Microsoft]
+![Microsoft Office]
+![Microsoft PowerPoint]
 ### I have a basic knowledge of🧠
 ![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
 ![Solidity](https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black)
