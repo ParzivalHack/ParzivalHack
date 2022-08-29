@@ -53,3 +53,14 @@ If you're interested and you want to know more about me, feel free to check my w
 [![Linkedin Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)
 [![Instagram Badge](https://img.shields.io/badge/-TommasoBona-purple?style=flat-square&logo=instagram&logoColor=white&link=https://instagram.com/tommasoobona/)](https://instagram.com/tommasoobona)
 [![Gmail Badge](https://img.shields.io/badge/-tommasobona04@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tommasobona04@gmail.com)](mailto:tommasobona04@gmail.com)
+
+### GitHub stats⌨️
+
+<details>
+<summary>Click for GitHub Stats</summary>
+<p align="center">
+    <img alt = "GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=ParzivalHack&show_icons=true&hide=issues&icon_color=000000&hide_border=true&title_color=5391FE&text_color=555">
+    <br>
+    <img alt = "Top Language" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ParzivalHack&hide=html,&hide_border=true&title_color=5391FE&text_color=555"
+</p>
+</details>
