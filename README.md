@@ -8,6 +8,12 @@
 - 😄 Pronouns: He/Him
 - ⚡ Fun fact: I am currently a CyberSecurity Teacher for a huge Python community on [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white&link=https://discord.gg/dDD4Ddsvxa)](https://discord.gg/dDD4Ddsvxa)
 
+### About me👨‍💻
+
+Hello everyone! I'm Tommaso Bona, a Junior Developer and Ethical Hacker from Italy🇮🇹 I usually code in Shell, Python  and Golang but i also know a bit of HTML/CSS, Solidity and Assembly 8086.
+With that said, right now i work as a CyberSecurity Specialist at Netech srl and I have achieved important certifications in the field of CyberSecurity (like the Practical Cyber Threat Intelligence Certificate by EC-COUNCIL)👨‍💻
+If you're interested and you want to know more about me, feel free to check my website: https://portosaurus.github.io/TommasoBona/🌐
+
 ### Languages🗣️
 
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
