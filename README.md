@@ -32,6 +32,14 @@
 ![Solidity](https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 
+### I use these OS
+
+![Windows]
+![Arch Linux]
+![Linux]
+![Kali Linux]
+![Android]
+
 ### Get in touch with me📲
 
 [![Linkedin Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)
