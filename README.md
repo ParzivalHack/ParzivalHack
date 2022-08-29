@@ -6,7 +6,7 @@
 - 🤔 I’m looking for help with all kind of projects in Shell and Python.
 - 💬 Ask me about CyberSecurity
 - 😄 Pronouns: He/Him
-- ⚡ Fun fact: I am currently a CyberSecurity Teacher for a huge Python community.
+- ⚡ Fun fact: I am currently a CyberSecurity Teacher for a huge Python community on ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)(https://discord.gg/dDD4Ddsvxa)
 
 ### Languages🗣️
 
