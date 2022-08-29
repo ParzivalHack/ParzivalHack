@@ -19,6 +19,11 @@
 ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
 ![Raspberry Pi](https://img.shields.io/badge/-Raspberry%20Pi-C51A4A?style=flat-square&logo=Raspberry-Pi)
 
+### I have a basic knowledge of!🧠
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
+![Solidity](https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+
 ### Get in touch with me!📲
 
 [![Linkedin Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)
