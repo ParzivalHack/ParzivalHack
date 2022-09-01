@@ -41,6 +41,14 @@ Hello everyone!
 ![Microsoft Office](https://img.shields.io/badge/Microsoft_Office-D83B01?style=for-the-badge&logo=microsoft-office&logoColor=white)
 ![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)
 
+### My most relevant certifications📜
+
+![Screenshot_2022-09-01-16-42-11-46_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943704-2a9b3e1e-2936-45db-b2bf-7486c5e7ccce.jpg)
+![Screenshot_2022-09-01-16-42-39-82_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943786-517d9629-09ff-440a-9cee-f318085f0ebc.jpg)
+![Screenshot_2022-09-01-16-43-09-40_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943846-d5b73b03-7ec4-471f-829a-bff54556604f.jpg)
+
+
+
 ### I use these OS🖥️
 
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
