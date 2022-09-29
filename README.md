@@ -12,7 +12,7 @@
 
 Hello everyone!
 - I'm Tommaso Bona, a Junior Developer and Ethical Hacker from Italy🇮🇹 
-- I usually code in Shell, Python  and Golang but i also know a bit of HTML/CSS, Solidity, C++ and JavaScript🖥️
+- I usually code in Shell, Python, Golang and Batchfile but i also know a bit of HTML/CSS, Solidity, C++ and JavaScript🖥️
 - With that said, right now i work as a CyberSecurity Specialist at Netech srl and I have achieved important certifications in the field of CyberSecurity (like the Practical Cyber Threat Intelligence Certificate by EC-COUNCIL)👨‍💻
 - If you're interested and you want to know more about me, feel free to check my website: https://portosaurus.github.io/TommasoBona/ 🌐
 
@@ -42,6 +42,7 @@ Hello everyone!
 ![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)
 
 ## My most relevant certifications📜
+
 
 ![Screenshot_2022-09-01-16-42-11-46_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943704-2a9b3e1e-2936-45db-b2bf-7486c5e7ccce.jpg)
 ![Screenshot_2022-09-01-16-42-39-82_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943786-517d9629-09ff-440a-9cee-f318085f0ebc.jpg)
