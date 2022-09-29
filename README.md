@@ -79,5 +79,7 @@ Hello everyone!
     <br>
     <img alt = "Top Language" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ParzivalHack&hide=html,&hide_border=true&title_color=5391FE&text_color=555"
 <img alt="Downloads" src="https://img.shields.io/galaxytoolshed/downloads/ParzivalHack/ParzivalHack">
-</p>
+
+
+   </p>
 </details>
