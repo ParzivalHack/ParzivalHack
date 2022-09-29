@@ -75,7 +75,7 @@ Hello everyone!
 <details>
 <summary>Click here for GitHub Stats</summary>
 <p align="center">
-    (https://img.shields.io/galaxytoolshed/downloads/ParzivalHack/ParzivalHack)
+   ![Downloads](https://img.shields.io/galaxytoolshed/downloads/ParzivalHack/ParzivalHack
    <img alt = "GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=ParzivalHack&show_icons=true&hide=issues&icon_color=000000&hide_border=true&title_color=5391FE&text_color=555">
     <br>
     <img alt = "Top Language" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ParzivalHack&hide=html,&hide_border=true&title_color=5391FE&text_color=555"
