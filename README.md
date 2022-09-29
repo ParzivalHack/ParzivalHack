@@ -1,3 +1,10 @@
+<div id="header" align="center"> 
+
+   <img src="https://media.giphy.com/media/YRMb6dd7zprS00JdGZ/giphy.gif" width="100"/> 
+
+ </div>
+
+
 ## Welcome to my Github <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
 - 🔭 I’m currently working on different pentesting tools.
@@ -73,6 +80,3 @@ Hello everyone!
     <img alt = "Top Language" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ParzivalHack&hide=html,&hide_border=true&title_color=5391FE&text_color=555"
 </p>
 </details>
-<div id="header" align="center"> 
-   <img src="https://media.giphy.com/media/YRMb6dd7zprS00JdGZ/giphy.gif" width="100"/> 
- </div>
