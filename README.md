@@ -49,7 +49,7 @@ Hello everyone!
 ![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)
 
 ## My most relevant certifications📜
-
+![image](https://user-images.githubusercontent.com/82817793/194577608-857662b3-ac14-4da9-8eb4-8c2dfb0992af.png)
 ![Screenshot_2022-09-29-10-53-24-99_4a24d271e133915ae237d4bec6ffe368](https://user-images.githubusercontent.com/82817793/193056713-51a43b79-3d1e-47d7-bd24-9b1c8415cbd8.jpg)
 ![Screenshot_2022-09-01-16-42-11-46_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943704-2a9b3e1e-2936-45db-b2bf-7486c5e7ccce.jpg)
 ![Screenshot_2022-09-01-16-42-39-82_254de13a4bc8758c9908fff1f73e3725](https://user-images.githubusercontent.com/82817793/187943786-517d9629-09ff-440a-9cee-f318085f0ebc.jpg)
