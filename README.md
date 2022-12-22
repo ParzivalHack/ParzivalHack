@@ -8,7 +8,7 @@
 ## Welcome to my Github <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
 - 🔭 I’m currently working on different pentesting tools.
-- 🌱 I’m currently learning Golang.
+- 🌱 I’m currently learning Rust.
 - 👯 I’m looking to collaborate on open-source projects.
 - 🤔 I’m looking for help with all kind of projects in Shell and Python.
 - 💬 Ask me about CyberSecurity
