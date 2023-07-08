@@ -19,7 +19,7 @@
 
 Hello everyone!
 - I'm Tommaso Bona, a Junior Developer and Ethical Hacker from Italy🇮🇹 
-- I usually code in Shell, Python, Golang and Batchfile but i also know a bit of HTML/CSS, Solidity, C++ and JavaScript🖥️
+- I usually code in Shell, Python and Batchfile but i also know a bit of HTML/CSS and i got basic knowledge of other languages like C++ and Solidity.
 - With that said, right now i work as a Security Engineer at Netech srl and I have achieved important certifications in the field of CyberSecurity (like the Practical Cyber Threat Intelligence Certificate by EC-COUNCIL)👨‍💻
 - If you're interested and you want to know more about me, feel free to check my website: https://portosaurus.github.io/TommasoBona/ 🌐
 
@@ -30,11 +30,9 @@ Hello everyone!
 ![Python](https://img.shields.io/badge/-Python-black?style=flat-square&logo=Python)
 ![Shell](https://img.shields.io/badge/-Shell-5391FE?style=flat-square&logo=PowerShell&logoColor=white)
 ![Batchfile](https://img.shields.io/badge/-Batchfile-5391FE?style=flat-square&logo=PowerShell&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 
 ## I got basic knowledge of🧠
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
 ![Solidity](https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 
