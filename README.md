@@ -13,7 +13,7 @@
 - 🤔 I’m looking for help with all kind of projects in Bash and Python.
 - 💬 Ask me about CyberSecurity
 - 😄 Pronouns: He/Him
-- ⚡ Fun fact: My latest project is a early-stage AI startup that i made with some friends [![Voyxa](https://voyxa.com)
+- ⚡ Fun fact: My latest project is a early-stage AI startup that i made with some friends, called [Voyxa](https://voyxa.com)
 
 ## About me👨‍💻
 
