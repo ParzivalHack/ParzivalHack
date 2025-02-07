@@ -9,7 +9,7 @@
 - 🔬 **Cybersecurity Researcher** | Investigating **Prompt Injection Attacks**, **AI Exploit Development**, **Network Security**, and **Advanced Threat Analysis**  
 - 💡 **Tech Mentor & Educator** | Active **mentor at [SecurityCert](https://securitycert.it)**, Italy’s largest cybersecurity community for professionals and companies  
 - 🎯 **Open-Source Contributor** | Developing and maintaining **Pentesting Tools**, **AI Security Solutions**, and **Automation in System Engineering**  
-- 👾 **Continuous Learner** | Advancing skills in **LLM Security**, **Advanced Exploit Development**, **PowerShell Pentesting**, and **Network Threat Intelligence**  
+- 👾 **Continuous Learner** | Advancing skills in **LLM Security**, **Advanced Exploit Development**, **PowerShell Pentesting**, and **Network Security**  
 
 ---
 
