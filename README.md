@@ -4,25 +4,28 @@
 
 # Welcome to My GitHub <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
-- 🛡 **Security Professional with 4 years of experience & AI Red Teamer** | Specialized in **WebApp Pentesting**, **AI Security and Network Security Research**, and **Pentesting Tools Development and Exploits Development**  
-- 🚀 **Startup Founder** | I'm the CoFounder & CTO @ **[Voyxa](https://voyxa.com)**, a B2B SaaS Voice AI Company, aiming to provide Helpdesk and Technical Support solutions to companies all over the world  
-- 🔬 **Cybersecurity Researcher** | Exploring **Prompt Injection Attacks**, **AI Exploit Development**, and **Network Security**  
-- 💡 **Tech Mentor & Educator** | Contributing to **[SecurityCery](https://securitycert.it)**, the largest Italian cybersecurity community for professionals and companies 
-- 🎯 **Open-Source Contributor** | Developing and maintaining tools for **Pentesting**, **AI Security**, and **Automation in System Engineering**  
-- 👾 **Always Learning** | Diving deeper into **LLM Security**, **Advanced Exploit Development**, and **PowerShell Pentesting**  
+- 🛡 **Security Professional with 4 years of experience & AI Red Teamer** | Specialized in **WebApp Pentesting**, **AI Security and Network Security Research**, and **Pentesting Tools & Exploits Development**  
+- 🚀 **Startup Founder & CTO** | Leading security & development at **[Voyxa](https://voyxa.com)**, an AI-powered **B2B SaaS Voice AI Company**, providing **Helpdesk and Technical Support solutions** to enterprises  
+- 🔬 **Cybersecurity Researcher** | Investigating **Prompt Injection Attacks**, **AI Exploit Development**, **Network Security**, and **Advanced Threat Analysis**  
+- 💡 **Tech Mentor & Educator** | Active **mentor at [SecurityCery](https://securitycert.it)**, Italy’s largest cybersecurity community for professionals and companies  
+- 🎯 **Open-Source Contributor** | Developing and maintaining **Pentesting Tools**, **AI Security Solutions**, and **Automation in System Engineering**  
+- 👾 **Continuous Learner** | Advancing skills in **LLM Security**, **Advanced Exploit Development**, **PowerShell Pentesting**, and **Network Threat Intelligence**  
 
 ---
 
 ## 🔍 About Me
 
-Hey there! I'm **Tommaso Bona**, a **Security Professional, Ethical Hacker, and AI Red Teamer** from Italy. I have a strong passion for offensive security, AI adversarial research, and penetration testing. My work, here on Github, focuses on:  
+Hey there! I'm **Tommaso Bona**, a **Security Professional, Ethical Hacker, and AI Red Teamer** from Italy. My expertise lies in **offensive security, AI adversarial research, and penetration testing**.  
 
-- **Building AI Red Teaming methodologies** for **automated LLM security audits and adversarial testing**  
-- **Developing cybersecurity tools** for **pentesting**, **exploit automation**, and **threat research**  
-- **Conducting AI security research** on **prompt injection**, **LLM vulnerabilities**, and **adversarial attacks**  
-- **Mentoring and educating** professionals through **SecurityCery**, sharing insights on **AI security** and **offensive cybersecurity**  
+I am dedicated to **securing AI systems, identifying vulnerabilities in web applications and networks, and developing advanced security tools**. My contributions focus on:  
 
-Currently, I'm focused on **pushing the boundaries of AI security**, creating **exploit frameworks for LLMs**, and **helping companies secure their AI systems**.  
+- **AI Red Teaming & LLM Security Auditing** – Developing **automated LLM security assessments and adversarial AI testing methodologies**  
+- **Exploit & Malware Development** – Crafting **custom exploits, keyloggers, and evasion techniques for security testing**  
+- **Web & Network Pentesting** – Conducting **offensive security assessments on applications and infrastructure**  
+- **Prompt Injection & AI Security Research** – Analyzing **LLM vulnerabilities and adversarial ML techniques**  
+- **Mentoring & Cybersecurity Education** – Supporting the **SecurityCery community** and contributing to cybersecurity training initiatives  
+
+At **Voyxa**, I **lead the development and delivery of our AI-driven solution**, ensuring the **highest security and compliance standards** while managing a **team of engineers and researchers**.  
 
 ---
 
@@ -34,27 +37,30 @@ Currently, I'm focused on **pushing the boundaries of AI security**, creating **
 ![PowerShell](https://img.shields.io/badge/-PowerShell-blue?style=flat-square&logo=PowerShell)
 ![Bash](https://img.shields.io/badge/-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 
-
-
 ### **Security & Offensive Tooling**  
-🔹 **AI Red Teaming** | Adversarial AI Security, LLM Prompt Injection, Model Extraction  
-🔹 **Pentesting** | Exploit Development, WebApp Pentesting & Network Security  
-🔹 **Malware Development** | Custom payloads for Windows/Linux, Keyloggers, Evasion Techniques  
-🔹 **AI Security Research** | Prompt Injection Attacks, LLM Security Audits, Automated Red Teaming  
+🔹 **AI Red Teaming** | **Adversarial AI Security, LLM Prompt Injection, Model Extraction**  
+🔹 **WebApp & Network Pentesting** | **Exploit Development, Vulnerability Assessments, Threat Simulation**  
+🔹 **Scripting & Development** | **Custom Advanced Payloads and Pentesting tools Development for Windows/Linux**  
+🔹 **Threat Hunting & Forensics** | **SIEM/XDR Monitoring, CVE Mitigation, Malware Analysis**  
 
 ---
 
 ## ⚙️ Tools & Technologies  
 
-### **Offensive Security**  
+### **Offensive Security & Exploitation**  
 - **Metasploit, Cobalt Strike, Burp Suite, Nmap, Wireshark, Recon-ng**  
-- **AI Exploitation: OpenAI API Testing, LLM Red Teaming, Model Extraction**  
-- **Keyloggers, Reverse Shells, Exploit Dev (Windows/Linux)**  
+- **AI Security Testing: OpenAI API, LLM Red Teaming, Model Extraction**  
+- **Reverse Shells, Keyloggers, Exploit Dev (Windows/Linux)**  
 
-### **AI & Cybersecurity Research**  
+### **Cybersecurity Research & AI Security**  
 - **LLM Security Auditing Tools** | Custom AI Exploit Development  
-- **AI Automation** | Secure AI API Testing  
-- **Adversarial ML** | Model Manipulation, Prompt Engineering  
+- **AI Offensive Automations** | Secure AI API Testing in Python 
+- **Adversarial ML** | Prompt Manipulation, AI Attack Simulations  
+
+### **Cloud & Infrastructure Security**  
+- **AWS Security & IAM** | Infrastructure Hardening  
+- **Active Directory & WatchGuard Firewall Configuration**  
+- **Network Monitoring: ESET Protect, Checkmk, CoreMon Observium**  
 
 ### **Operating Systems**  
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
@@ -64,9 +70,22 @@ Currently, I'm focused on **pushing the boundaries of AI security**, creating **
 
 ---
 
+## 🏆 Relevant Certifications  
+
+- **ISC2 Certified in Cybersecurity (CC)**
+- **Fortinet Certified Associate in Cybersecurity – Fortinet** 
+- **Blue Team Junior Analyst (BTJA) – Security Blue Team** 
+- **Cybersecurity Roles, Processes and Operating System Security – IBM**  
+- **ESET Managed Cloud Security Specialist**
+- **ESET Managed Client Security Specialist** 
+- **D|FE, N|DE & E|HE – EC-Council**  
+- **Practical Cyber Threat Intelligence – EC-Council**  
+
+---
+
 ## 🔗 Connect with Me  
 
-[![LinkedIn Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232) 
+[![LinkedIn Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)  
 [![Gmail Badge](https://img.shields.io/badge/-tommasobona04@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tommasobona04@gmail.com)](mailto:tommasobona04@gmail.com)  
 
 ---
