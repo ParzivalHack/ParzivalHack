@@ -83,7 +83,7 @@ At **Voyxa**, I **lead the development and delivery of our AI-driven solution**,
 - **ESET Managed Client Security Specialist** 
 - **D|FE, N|DE & E|HE – EC-Council**  
 - **Practical Cyber Threat Intelligence – EC-Council**
-- - **Authentication and Authorization with AWS Identity and Access Management – AWS**  
+- **Authentication and Authorization with AWS Identity and Access Management – AWS**  
 
 ---
 
