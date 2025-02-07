@@ -15,7 +15,7 @@
 
 ## 🔍 About Me
 
-Hey there! I'm **Tommaso Bona**, a **Security Professional, Ethical Hacker, and AI Red Teamer** from Italy. My expertise lies in **offensive security, AI adversarial research, and penetration testing**.  
+Hey there! I'm **Tommaso Bona**, a **Security Professional, Ethical Hacker, and AI Red Teamer** from Italy. My expertise lies in **offensive security, AI adversarial and Network Security research, Exploits/Tools Development and Penetration Testing**.  
 
 I am dedicated to **securing AI systems, identifying vulnerabilities in web applications and networks, and developing advanced security tools**. My contributions focus on:  
 
@@ -48,9 +48,12 @@ At **Voyxa**, I **lead the development and delivery of our AI-driven solution**,
 ## ⚙️ Tools & Technologies  
 
 ### **Offensive Security & Exploitation**  
-- **Metasploit, Cobalt Strike, Burp Suite, Nmap, Wireshark, Recon-ng**  
-- **AI Security Testing: OpenAI API, LLM Red Teaming, Model Extraction**  
-- **Reverse Shells, Keyloggers, Exploit Dev (Windows/Linux)**  
+- **Web & Network Pentesting** | Tools like SQLmap, Metasploit, Nmap, Wireshark, Recon-ng (but mostly i develop my own tools)   
+- **Exploit Development & Reverse Engineering** | Custom Windows/Linux Exploits, Payload Development, Shellcode Injection  
+- **Malware Analysis & Evasion Techniques** | Keyloggers, Reverse Shells, Obfuscation & AV Evasion  
+- **AI Security & Adversarial Attacks** | LLM Red Teaming, OpenAI API Exploitation, Model Extraction & Manipulation  
+- **Digital Forensics & Threat Hunting** | SIEM/XDR (Darktrace, ESET), IOC Analysis (Redline, Mandiant IOCEditor)  
+- **OSINT & Dark Web Operations** | Intelligence Gathering, Threat Actor Tracking, Anonymity Techniques    
 
 ### **Cybersecurity Research & AI Security**  
 - **LLM Security Auditing Tools** | Custom AI Exploit Development  
