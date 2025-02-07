@@ -7,7 +7,7 @@
 - 🛡 **Security Professional with 4 years of experience & AI Red Teamer** | Specialized in **WebApp Pentesting**, **AI Security and Network Security Research**, and **Pentesting Tools & Exploits Development**  
 - 🚀 **Startup Founder & CTO** | Leading security & development at **[Voyxa](https://voyxa.com)**, an AI-powered **B2B SaaS Voice AI Company**, providing **Helpdesk and Technical Support solutions** to enterprises  
 - 🔬 **Cybersecurity Researcher** | Investigating **Prompt Injection Attacks**, **AI Exploit Development**, **Network Security**, and **Advanced Threat Analysis**  
-- 💡 **Tech Mentor & Educator** | Active **mentor at [SecurityCery](https://securitycert.it)**, Italy’s largest cybersecurity community for professionals and companies  
+- 💡 **Tech Mentor & Educator** | Active **mentor at [SecurityCert](https://securitycert.it)**, Italy’s largest cybersecurity community for professionals and companies  
 - 🎯 **Open-Source Contributor** | Developing and maintaining **Pentesting Tools**, **AI Security Solutions**, and **Automation in System Engineering**  
 - 👾 **Continuous Learner** | Advancing skills in **LLM Security**, **Advanced Exploit Development**, **PowerShell Pentesting**, and **Network Threat Intelligence**  
 
