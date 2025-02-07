@@ -23,7 +23,7 @@ I am dedicated to **securing AI systems, identifying vulnerabilities in web appl
 - **Exploit & Malware Development** – Crafting **custom exploits, keyloggers, and evasion techniques for security testing**  
 - **Web & Network Pentesting** – Conducting **offensive security assessments on applications and infrastructure**  
 - **Prompt Injection & AI Security Research** – Analyzing **LLM vulnerabilities and adversarial ML techniques**  
-- **Mentoring & Cybersecurity Education** – Supporting the **SecurityCery community** and contributing to cybersecurity training initiatives  
+- **Mentoring & Cybersecurity Education** – Supporting the **SecurityCert community** and contributing to cybersecurity training initiatives  
 
 At **Voyxa**, I **lead the development and delivery of our AI-driven solution**, ensuring the **highest security and compliance standards** while managing a **team of engineers and researchers**.  
 
