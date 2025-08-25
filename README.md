@@ -2,99 +2,60 @@
   <img src="https://media.giphy.com/media/YRMb6dd7zprS00JdGZ/giphy.gif" width="100"/>
 </div>
 
-# Welcome to My GitHub <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
+# Tommaso Bona | Cybersecurity Professional & Entrepreneur <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
-- 🛡 **Security Professional with 4 years of experience & AI Red Teamer** | Specialized in **WebApp Pentesting**, **AI Security and Network Security Research**, and **Pentesting Tools & Exploits Development**  
-- 🚀 **Startup Founder & CTO** | Leading security & development at **[Voyxa](https://voyxa.com)**, an AI-powered **B2B SaaS Voice AI Company**, providing **Helpdesk and Technical Support solutions** to enterprises  
-- 🔬 **Cybersecurity Researcher** | Investigating **Prompt Injection Attacks**, **AI Exploit Development**, **Network Security**, and **Advanced Threat Analysis**  
-- 💡 **Tech Mentor & Educator** | Active **mentor at [SecurityCert](https://securitycert.it)**, Italy’s largest cybersecurity community for professionals and companies  
-- 🎯 **Open-Source Contributor** | Developing and maintaining **Pentesting Tools**, **AI Security Solutions**, and **Automation in System Engineering**  
-- 👾 **Continuous Learner** | Advancing skills in **LLM Security**, **Advanced Exploit Development**, **PowerShell Pentesting**, and **Network Security**  
+As a passionate cybersecurity professional and entrepreneur, I'm the **Co-Founder, Board of Directors' Member, and Major Stakeholder** at Voyxa. My work is focused on revolutionizing the IT helpdesk field with innovative, AI-driven solutions. In my free time, I am an **independent bug bounty hunter and security researcher**, contributing to the security of tools and libraries. I also serve as an **OSINT Analyst** with the Guardian Group's elite PURSUIT® Team, dedicated to fighting sex trafficking and child exploitation.
+
+My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided a strong technical foundation, which I now leverage to build secure and scalable systems, conduct security research, and lead technical teams.
 
 ---
 
-## 🔍 About Me
+## 💡 What I'm Focused On
 
-Hey there! I'm **Tommaso Bona**, a **Security Professional, Ethical Hacker, and AI Red Teamer** from Italy. My expertise lies in **offensive security, AI adversarial and Network Security research, Exploits/Tools Development and Penetration Testing**.  
-
-I am dedicated to **securing AI systems, identifying vulnerabilities in web applications and networks, and developing advanced security tools**. My contributions focus on:  
-
-- **AI Red Teaming & LLM Security Auditing** – Developing **automated LLM security assessments and adversarial AI testing methodologies**  
-- **Exploit & Malware Development** – Crafting **custom exploits, keyloggers, and evasion techniques for security testing**  
-- **Web & Network Pentesting** – Conducting **offensive security assessments on applications and infrastructure**  
-- **Prompt Injection & AI Security Research** – Analyzing **LLM vulnerabilities and adversarial ML techniques**  
-- **Mentoring & Cybersecurity Education** – Supporting the **SecurityCert community** and contributing to cybersecurity training initiatives  
-
-At **Voyxa**, I **lead the development and delivery of our AI-driven solution**, ensuring the **highest security and compliance standards** while managing a **team of engineers and researchers**.  
+- **Leadership & Technical Team Management:** During my tenure as CTO, I led a 20-person cross-functional team, which included a 24/7 SOC, Legal IT paralegals, GRC experts, a Full Stack department, AI/ML, DevOps, and DevSecOps.
+- **Cybersecurity & Bug Bounty Hunting:** Specializing in offensive security, vulnerability research, and advanced adversarial AI testing, with a passion for discovering and reporting vulnerabilities.
+- **Humanitarian OSINT:** Applying my skills as an OSINT Analyst to support law enforcement in crucial anti-trafficking operations.
+- **Security Research & Publications:** Investigating emerging threats and publishing research on topics such as secure data transmission and AI offensive security.
 
 ---
 
-## 🔧 Technical Expertise  
+## 🛠️ My Expertise
 
-### **Languages & Scripting**  
-![Python](https://img.shields.io/badge/-Python-black?style=flat-square&logo=Python)
-![Shell](https://img.shields.io/badge/-Shell-5391FE?style=flat-square&logo=PowerShell&logoColor=white)
-![PowerShell](https://img.shields.io/badge/-PowerShell-blue?style=flat-square&logo=PowerShell)
-![Bash](https://img.shields.io/badge/-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+### **Core Skills**
+🔹 **Cybersecurity:** Offensive Security, Threat Analysis, Penetration Testing (Web & Network), Digital Forensics, and OSINT.
+🔹 **AI Security:** LLM Red Teaming, Prompt Injection, Adversarial Machine Learning, and Automated Security Assessments.
+🔹 **Leadership & Management:** Technical Team Management, Product Management, and Project Management.
+🔹 **Development & Scripting:** Python, PowerShell, Bash, and developing custom security tools.
 
-### **Security & Offensive Tooling**  
-🔹 **AI Red Teaming** | **Adversarial AI Security, LLM Prompt Injection, Model Extraction**  
-🔹 **WebApp & Network Pentesting** | **Exploit Development, Vulnerability Assessments, Threat Simulation**  
-🔹 **Scripting & Development** | **Custom Advanced Payloads and Pentesting tools Development for Windows/Linux**  
-🔹 **Threat Hunting & Forensics** | **SIEM/XDR Monitoring, CVE Mitigation, Malware Analysis**  
+### **Publications & Projects**
+- **Research Paper:** *Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol* (Published via CERN & OpenAIRE).
+- **Project:** **LPEAssessor**, a comprehensive Linux privilege escalation VAPT Framework.
+- **Articles:** Author of multiple articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injection to AI Offensive Security.
 
----
+### **Licenses & Certifications**
+I hold a wide range of certifications from globally recognized vendors, demonstrating my commitment to continuous learning and excellence.
 
-## ⚙️ Tools & Technologies  
-
-### **Offensive Security & Exploitation**  
-- **Web & Network Pentesting** | Tools like SQLmap, Metasploit, Nmap, Wireshark, Recon-ng (but mostly i develop my own tools)   
-- **Exploit Development & Reverse Engineering** | Custom Windows/Linux Exploits, Payload Development, Shellcode Injection  
-- **Malware Analysis & Evasion Techniques** | Keyloggers, Reverse Shells, Obfuscation & AV Evasion  
-- **AI Security & Adversarial Attacks** | LLM Red Teaming, OpenAI API Exploitation, Model Extraction & Manipulation  
-- **Digital Forensics & Threat Hunting** | SIEM/XDR (Darktrace, ESET), IOC Analysis (Redline, Mandiant IOCEditor)  
-- **OSINT & Dark Web Operations** | Intelligence Gathering, Threat Actor Tracking, Anonymity Techniques    
-
-### **Cybersecurity Research & AI Security**  
-- **LLM Security Auditing Tools** | Custom AI Exploit Development  
-- **AI Offensive Automations** | Secure AI API Testing in Python 
-- **Adversarial ML** | Prompt Manipulation, AI Attack Simulations  
-
-### **Cloud & Infrastructure Security**  
-- **AWS Security & IAM** | Infrastructure Hardening  
-- **Active Directory & WatchGuard Firewall Configuration**  
-- **Network Monitoring: ESET Protect, Checkmk, CoreMon Observium**  
-
-### **Operating Systems**  
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white)
-![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+- **ISC2:** Certified in Cybersecurity (CC), NIST Cybersecurity Framework 2.0.
+- **EC-Council:** E|HE, N|DE, D|FE, Practical Cyber Threat Intelligence.
+- **Security Blue Team:** Blue Team Junior Analyst (BTJA).
+- **Fortinet:** Certified Associate in Cybersecurity.
+- **IBM:** Cybersecurity Roles, Processes & Operating System Security.
+- **ESET:** Certified ESET Managed Cloud Security Specialist.
+- **AWS:** Authentication and Authorization with AWS IAM, AWS Foundations: Securing Your AWS Cloud.
+- **SkillFront:** ISO/IEC 27001:2022 Information Security Associate.
 
 ---
 
-## 🏆 Relevant Certifications  
+## 🌐 Connect & Collaborate
 
-- **ISC2 Certified in Cybersecurity (CC)**
-- **Fortinet Certified Associate in Cybersecurity – Fortinet** 
-- **Blue Team Junior Analyst (BTJA) – Security Blue Team** 
-- **Cybersecurity Roles, Processes and Operating System Security – IBM**  
-- **ESET Managed Cloud Security Specialist**
-- **ESET Managed Client Security Specialist** 
-- **D|FE, N|DE & E|HE – EC-Council**  
-- **Practical Cyber Threat Intelligence – EC-Council**
-- **Authentication and Authorization with AWS Identity and Access Management – AWS**  
+I'm always open to discussing new opportunities, projects, and the future of cybersecurity and AI innovation.
+
+[![LinkedIn Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)
+[![Gmail Badge](https://img.shields.io/badge/-tommasobona04@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tommasobona04@gmail.com)](mailto:tommasobona04@gmail.com)
 
 ---
 
-## 🔗 Connect with Me  
-
-[![LinkedIn Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)  
-[![Gmail Badge](https://img.shields.io/badge/-tommasobona04@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tommasobona04@gmail.com)](mailto:tommasobona04@gmail.com)  
-
----
-
-## 📊 GitHub Stats  
+## 📊 GitHub Stats
 
 <details>
   <summary>Click here for GitHub Stats</summary>
