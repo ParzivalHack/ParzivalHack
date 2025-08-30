@@ -2,7 +2,9 @@
   <img src="https://media.giphy.com/media/YRMb6dd7zprS00JdGZ/giphy.gif" width="100"/>
 </div>
 
-# Tommaso Bona\n Cybersecurity Professional & Entrepreneur <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
+# Tommaso Bona
+# Cybersecurity Professional & Entrepreneur 
+## Welcome <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
 As a passionate cybersecurity professional and entrepreneur, I'm the **Co-Founder, Board of Directors' Member, and Major Stakeholder** at Voyxa. My work is focused on revolutionizing the IT helpdesk field with innovative, AI-driven solutions. In my free time, I am an **independent bug bounty hunter and security researcher**, contributing to the security of tools and libraries. I also serve as an **OSINT Analyst** with the Guardian Group's elite PURSUIT® Team, dedicated to fighting sex trafficking and child exploitation.
 
