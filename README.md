@@ -2,7 +2,7 @@
   <img src="https://media.giphy.com/media/YRMb6dd7zprS00JdGZ/giphy.gif" width="100"/>
 </div>
 
-# Tommaso Bona | Cybersecurity Professional & Entrepreneur <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
+# Tommaso Bona\n Cybersecurity Professional & Entrepreneur <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
 As a passionate cybersecurity professional and entrepreneur, I'm the **Co-Founder, Board of Directors' Member, and Major Stakeholder** at Voyxa. My work is focused on revolutionizing the IT helpdesk field with innovative, AI-driven solutions. In my free time, I am an **independent bug bounty hunter and security researcher**, contributing to the security of tools and libraries. I also serve as an **OSINT Analyst** with the Guardian Group's elite PURSUIT® Team, dedicated to fighting sex trafficking and child exploitation.
 
@@ -32,9 +32,9 @@ My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided
 - **Project:** **LPEAssessor**, a comprehensive Linux privilege escalation VAPT Framework.
 - **Articles:** Author of multiple articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injections to AI Offensive Security.
 
-### Core Security Contribution/s
+### Core Security Contributions
 
-## **CPython**:
+#### **CPython**:
 I identified and addressed a Path Traversal vulnerability,in a core test suite of the CPython (the official Python Programming Language) project. This fix, which improved the integrity of the codebase, was submitted via a pull request and merged after a thorough review by core developers. My work involved developing a proof-of-concept (PoC) to demonstrate the vulnerability and collaborating with the Python Security Response Team (PSRT) to report it:
 
 [![Fix Path Traversal in multissltests.py](https://img.shields.io/badge/PR-GH--138158-blue.svg)](https://github.com/python/cpython/pull/138158)
