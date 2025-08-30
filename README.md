@@ -32,8 +32,9 @@ My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided
 - **Project:** **LPEAssessor**, a comprehensive Linux privilege escalation VAPT Framework.
 - **Articles:** Author of multiple articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injections to AI Offensive Security.
 
-### Core Security Contributions
+### Core Security Contribution/s
 
+## **CPython**:
 I identified and addressed a Path Traversal vulnerability,in a core test suite of the CPython (the official Python Programming Language) project. This fix, which improved the integrity of the codebase, was submitted via a pull request and merged after a thorough review by core developers. My work involved developing a proof-of-concept (PoC) to demonstrate the vulnerability and collaborating with the Python Security Response Team (PSRT) to report it:
 
 [![Fix Path Traversal in multissltests.py](https://img.shields.io/badge/PR-GH--138158-blue.svg)](https://github.com/python/cpython/pull/138158)
