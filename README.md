@@ -30,7 +30,13 @@ My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided
 ### **Publications & Projects**
 - **Research Paper:** *Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol* (Published via CERN & OpenAIRE).
 - **Project:** **LPEAssessor**, a comprehensive Linux privilege escalation VAPT Framework.
-- **Articles:** Author of multiple articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injection to AI Offensive Security.
+- **Articles:** Author of multiple articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injections to AI Offensive Security.
+
+### **Core Security Contributions**
+
+<a href="https://github.com/ParzivalHack?tab=achievements&achievement=pair-extraordinaire">
+  <img src="https://github.com/ParzivalHack/ParzivalHack/raw/main/badges/pair-extraordinaire.png" alt="Pair Extraordinaire" width="200px" />
+</a>
 
 ### **Licenses & Certifications**
 I hold a wide range of certifications from globally recognized vendors, demonstrating my commitment to continuous learning and excellence.
