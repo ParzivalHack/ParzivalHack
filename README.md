@@ -46,11 +46,12 @@ I identified and addressed a Path Traversal vulnerability,in a core test suite o
 I hold a wide range of certifications from globally recognized vendors, demonstrating my commitment to continuous learning and excellence.
 
 - **ISC2:** Certified in Cybersecurity (CC), NIST Cybersecurity Framework 2.0.
-- **EC-Council:** E|HE, N|DE, D|FE, Practical Cyber Threat Intelligence.
+- **EC-Council:** E|HE, N|DE, D|FE.
 - **Security Blue Team:** Blue Team Junior Analyst (BTJA).
-- **Fortinet:** Certified Associate in Cybersecurity.
+- **Fortinet:** Fortinet Certified Associate in Cybersecurity.
 - **IBM:** Cybersecurity Roles, Processes & Operating System Security.
 - **ESET:** Certified ESET Managed Cloud Security Specialist.
+- **ESET:** Certified ESET Managed Client Security Specialist.
 - **AWS:** Authentication and Authorization with AWS IAM, AWS Foundations: Securing Your AWS Cloud.
 - **SkillFront:** ISO/IEC 27001:2022 Information Security Associate.
 
