@@ -37,7 +37,7 @@ My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided
 ### Core Security Contributions
 
 #### **CPython**:
-I identified and addressed a Path Traversal vulnerability,in a core test suite of the CPython (the official Python Programming Language) project. This fix, which improved the integrity of the codebase, was submitted via a pull request and merged after a thorough review by core developers. My work involved developing a proof-of-concept (PoC) to demonstrate the vulnerability and collaborating with the Python Security Response Team (PSRT) to report it:
+I identified and addressed a Path Traversal flaw, in a core test suite of the CPython (the official Python Programming Language) project. This fix, which improved the integrity of the codebase, was submitted via a pull request and merged after a thorough review by core developers. My work involved developing a proof-of-concept (PoC) to demonstrate the vulnerability and collaborating with the Python Security Response Team (PSRT) to report it:
 
 [![Fix Path Traversal in multissltests.py](https://img.shields.io/badge/PR-GH--138158-blue.svg)](https://github.com/python/cpython/pull/138158)
 
