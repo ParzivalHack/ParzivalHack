@@ -36,6 +36,11 @@ My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided
 
 ### Core Security Contributions
 
+#### Head Developer and Mantainer of [The PySpector Progect](https://parzivalhack.github.io/PySpector)
+PySpector is a static analysis security testing (SAST) Framework engineered for modern Python development workflows. It leverages a powerful Rust core to deliver high-speed (73% faster than Bandit, 16.6x faster than Semgrep), accurate vulnerability scanning, wrapped in a developer-friendly Python CLI.
+[![GitHub](https://img.shields.io/badge/GitHub-PySpector-black?logo=github&style=for-the-badge)](https://github.com/ParzivalHack/PySpector)
+
+
 #### **CPython**:
 I identified and addressed a Path Traversal flaw, in a core test suite of the CPython (the official Python Programming Language) project. This fix, which improved the integrity of the codebase, was submitted via a pull request and merged after a thorough review by core developers. My work involved developing a proof-of-concept (PoC) to demonstrate the vulnerability and collaborating with the Python Security Response Team (PSRT) to report it:
 
