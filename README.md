@@ -29,14 +29,17 @@ My background as a **Cybersecurity Specialist** and **SOC Analyst** has provided
 🔹 **Leadership & Management:** Technical Team Management, Product Management, and Project Management.
 🔹 **Development & Scripting:** Python, PowerShell, Bash, and developing custom security tools.
 
-### **Publications & Projects**
+### **Publications**
 - **Research Paper:** *Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol* (Published via CERN & OpenAIRE).
-- **Project:** **LPEAssessor**, a comprehensive Linux privilege escalation VAPT Framework.
-- **Articles:** Author of multiple articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injections to AI Offensive Security.
+- **Articles:** Author of multiple technical articles on cybersecurity for StationX Ltd. and SecurityCert, covering topics from SQL Injections to AI Offensive Security.
 
-### Core Security Contributions
+### **Core Security Contributions**
 
-#### Head Developer and Mantainer of [The PySpector Progect](https://parzivalhack.github.io/PySpector)
+#### Public Acknowledgement issued by the US Department of Commerce
+Found and reported a Critical, High Impact Error-based SQLi, leading to a full database takeover, on a US Department of Commerce's subdomain
+[Verify here](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
+
+#### Head Developer and Mantainer of [The PySpector Project:](https://parzivalhack.github.io/PySpector)
 PySpector is a static analysis security testing (SAST) Framework engineered for modern Python development workflows. It leverages a powerful Rust core to deliver high-speed (73% faster than Bandit, 16.6x faster than Semgrep), accurate vulnerability scanning, wrapped in a developer-friendly Python CLI.
 [![GitHub](https://img.shields.io/badge/GitHub-PySpector-black?logo=github&style=for-the-badge)](https://github.com/ParzivalHack/PySpector)
 
