@@ -74,7 +74,7 @@ I'm always open to discussing new opportunities, projects, and the future of cyb
 ---
 
 ## 📊 GitHub Stats
-[![committers.top badge](https://user-badge.committers.top/italy/parzivalhack.svg)](https://user-badge.committers.top/italy/parzivalhack)
+[![committers.top badge](https://user-badge.committers.top/italy/ParzivalHack.svg)](https://user-badge.committers.top/italy/ParzivalHack)
 
 <details>
   <summary>Click here for GitHub Stats</summary>
