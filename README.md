@@ -68,7 +68,7 @@ I hold a wide range of certifications from globally recognized vendors, demonstr
 
 I'm always open to discussing new opportunities, projects, and the future of cybersecurity and AI innovation.
 
-[![LinkedIn Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona-20b76b232)](https://www.linkedin.com/in/tommaso-bona-20b76b232)
+[![LinkedIn Badge](https://img.shields.io/badge/-TommasoBona-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tommaso-bona)](https://www.linkedin.com/in/tommaso-bona)
 [![Gmail Badge](https://img.shields.io/badge/-tommasobona04@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tommasobona04@gmail.com)](mailto:tommasobona04@gmail.com)
 
 ---
