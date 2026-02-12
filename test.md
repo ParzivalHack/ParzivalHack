@@ -94,12 +94,6 @@ A State-of-the-Art hybrid Rust/Python Graph-based SAST Framework, made for CI/CD
 <details>
   <summary><b>📈 View GitHub Metrics</b></summary>
   <p align="center">
-    <a href="https://user-badge.committers.top/italy/ParzivalHack">
-    <img src="https://user-badge.committers.top/italy/ParzivalHack.svg" alt="committers.top badge">
-  </a>
-  <br />
-  Currently ranked in the <b>Top 250 Developers on Github</b> (in Italy).
-    <br>
     <img alt="GitHub Stats" src="https://github-readme-stats-fast.vercel.app/api?username=ParzivalHack&show_icons=true&hide=issues&icon_color=000000&hide_border=true&title_color=5391FE&text_color=555">
   </p>
 </details>
