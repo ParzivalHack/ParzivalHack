@@ -6,60 +6,71 @@
 ## IT & Security Consultant | AI Security Researcher | ADHD & Autism Advocate
 ### Welcome <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30">
 
-I am an **IT & Security Consultant at Tralerighe Service** and an **AI Security Researcher** specializing in LLM vulnerabilities. My work focuses on bridging the gap between traditional offensive security and the emerging threats within the AI/ML landscape. 
+As an **IT & Security Consultant at Tralerighe Service**, I specialize in architecting secure infrastructures and performing deep-dive security audits for complex environments. My professional journey is rooted in leadership and technical innovation; as the former **Co-Founder and CTO of Voyxa**, I scaled and managed a 20-person cross-functional team—ranging from a 24/7 SOC and GRC experts to AI/ML and DevSecOps departments—overseeing the entire technical lifecycle of AI-driven helpdesk solutions.
 
-Beyond my professional roles, I am an **Open-Source Security Contributor for the Python Software Foundation (PSF)** and the creator of **PySpector**. I also serve as an **OSINT Analyst** with the Guardian Group's elite PURSUIT® Team, dedicated to combating child exploitation. I am a proud advocate for neurodiversity in tech, championing **ADHD & Autism** awareness and inclusion.
+Currently, my work is at the intersection of offensive security and Artificial Intelligence. As an **AI Security Researcher**, I investigate novel attack vectors, such as **AFMI (Anchored Fictional Multilingual Injection)**, to harden LLM search-engine pipelines. Parallel to my corporate roles, I am a dedicated **OSINT Analyst** for the Guardian Group's elite PURSUIT® Team, supporting law enforcement in anti-trafficking operations. I am also a proud advocate for **ADHD and Autism awareness**, championing neurodiversity as a critical asset for creative problem-solving in the cybersecurity industry.
+
+---
+
+## 📊 GitHub Global Standing
+[![committers.top badge](https://user-badge.committers.top/italy/ParzivalHack.svg)](https://user-badge.committers.top/italy/ParzivalHack)
+<br>Currently ranked in the **Top 250 GitHub Developers in Italy**.
 
 ---
 
 ## 💡 What I'm Focused On
 
-- **AI/LLM Security Research:** Discovering novel bypass techniques like **AFMI** (Anchored Fictional Multilingual Injection) and conducting adversarial testing on major AI frameworks.
-- **Static Analysis Innovation:** Maintaining **PySpector**, a hybrid Rust/Python SAST framework that has successfully uncovered RCE vulnerabilities in major AI libraries.
-- **Cybersecurity Consultancy:** Providing strategic security assessments and IT protection through **Tralerighe Service**.
-- **Humanitarian OSINT:** Leveraging specialized analytical skills to support law enforcement in anti-trafficking operations.
+- **Advanced Adversarial AI:** Researching deterministic safety bypasses in LLMs and developing automated red-teaming methodologies.
+- **Enterprise Security Strategy:** Leveraging my experience as a former CTO to provide GRC, technical team management, and secure-by-design consulting.
+- **Static Analysis Innovation:** Maintaining **PySpector**, a Rust-powered SAST framework designed to catch high-impact vulnerabilities in modern Python workflows.
+- **Humanitarian OSINT:** Applying high-level data analysis and digital forensics techniques to combat child exploitation globally.
 
 ---
 
 ## 🛠️ My Expertise
 
 ### **Core Skills**
-🔹 **AI Security:** LLM Red Teaming, Prompt Injection (AFMI), Adversarial ML, and Automated Security Assessments.
-🔹 **Offensive Security:** Web/Network Penetration Testing, Vulnerability Research, and Digital Forensics.
-🔹 **Leadership:** Former CTO & Co-Founder (Voyxa), Technical Team Management, and GRC Strategy.
-🔹 **Development:** Python, Rust (Core Dev), PowerShell, and Bash.
+🔹 **AI Security:** LLM Red Teaming, Prompt Injection (AFMI), Adversarial Machine Learning, and Automated Security Assessments.
+🔹 **Offensive Security:** Web & Network Penetration Testing, Vulnerability Research, and Threat Analysis.
+🔹 **Leadership & Management:** Former CTO (Led 20+ staff), Product Management, Project Management, and GRC.
+🔹 **Development & Scripting:** Python, Rust, PowerShell, and Bash.
 
-### **Selected Publications**
-- **Whitepaper:** *Anchored Fictional Multilingual Injection (AFMI): A Deterministic Safety Bypass in LLM Search-Engine Pipelines* (Published via StationX, 2025).
-- **Technical Article:** *PySpector: How My Own SAST Framework Led Me to an RCE in a Major AI Library* (SecurityCert, 2025).
-- **Research Paper:** *Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel UDP Protocol* (CERN & OpenAIRE).
+### **Publications & Research**
+- **Whitepaper:** [Anchored Fictional Multilingual Injection (AFMI): A Deterministic Safety Bypass in LLM Search-Engine Pipelines](https://www.stationx.net/anchored-fictional-multilingual-injection-afmi/) (StationX, 2025).
+- **Technical Research:** [PySpector: How My Own SAST Framework Led Me to an RCE in a Major AI Library](https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/) (SecurityCert, 2025).
+- **Academic Paper:** [Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol](https://zenodo.org/records/10636306) (Published via CERN & OpenAIRE).
+- **Technical Guide:** [Breaking the Wall: Prompt Injection and Jailbreaking in Large Language Models](https://www.stationx.net/prompt-injection-and-jailbreaking-in-llms/) (StationX, 2024).
+- **Industry Insight:** [Secure Code, Secure AI: Integrating SAST in the LLM Development Lifecycle](https://securitycert.it/secure-code-secure-ai-integrating-sast-in-the-llm-development-lifecycle/) (SecurityCert, 2024).
+- **Core Guide:** [SQL Injection: The Comprehensive Guide](https://www.stationx.net/sql-injection-the-comprehensive-guide/) (StationX, 2024).
 
 ---
 
 ## 🛡️ Core Security Contributions
 
-* **Remote Code Execution (RCE) Discovery:** Utilized **PySpector** to identify and responsibly disclose a critical RCE vulnerability in a widely used AI framework/Python library, now patched by maintainers.
+* **Remote Code Execution (RCE) in AI Framework:**
+Identified and responsibly disclosed a critical RCE vulnerability in a major AI library using PySpector.
+[Read the Research & Proof of Concept](https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/)
 
-* **Python Software Foundation (PSF) Contributor:**
-Identified and addressed a **Path Traversal** flaw in the **CPython** core test suite, improving the integrity of the official Python programming language.
-- [![Fix Path Traversal in multissltests.py](https://img.shields.io/badge/PR-GH--138158-blue.svg)](https://github.com/python/cpython/pull/138158)
+* **Public Acknowledgement — U.S. Department of Commerce:**
+Found and reported a Critical, High-Impact Error-based SQLi, leading to a full database takeover on a US Department of Commerce subdomain.
+[Verify official acknowledgement here](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
 
-* **U.S. Department of Commerce:**
-Publicly acknowledged for discovering a **Critical SQL Injection** leading to a full database takeover on a high-impact government subdomain.
-- [Verify Acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
+* **CPython (Official Python Language):**
+Addressed a Path Traversal flaw in the multissltests suite of the CPython project. Collaborated with the Python Security Response Team (PSRT) to merge the fix.
+[![Fix Path Traversal in multissltests.py](https://img.shields.io/badge/PR-GH--138158-blue.svg)](https://github.com/python/cpython/pull/138158)
 
-* **Maintainer of [The PySpector Project](https://parzivalhack.github.io/PySpector):**
-A high-performance SAST framework with a Rust core. **19k+ downloads** and counting.
-- [![GitHub](https://img.shields.io/badge/GitHub-PySpector-black?logo=github&style=for-the-badge)](https://github.com/ParzivalHack/PySpector)
+* **Head Developer of [The PySpector Project](https://parzivalhack.github.io/PySpector):**
+A hybrid Rust/Python SAST Framework with **19,000+ downloads**. Engineered for high-speed vulnerability scanning (73% faster than Bandit).
+[![GitHub](https://img.shields.io/badge/GitHub-PySpector-black?logo=github&style=for-the-badge)](https://github.com/ParzivalHack/PySpector)
 
 ---
 
 ## 📜 Licenses & Certifications
 - **ISC2:** Certified in Cybersecurity (CC), NIST Cybersecurity Framework 2.0.
-- **Security:** ISO/IEC 27001:2022 Information Security Associate, Fortinet Certified Associate.
 - **EC-Council:** E|HE (Hacking), N|DE (Defense), D|FE (Forensics).
 - **Security Blue Team:** Blue Team Junior Analyst (BTJA).
-- **IBM:** Cybersecurity Roles & OS Security.
+- **Compliance & Strategy:** ISO/IEC 27001:2022 Information Security Associate, Fortinet Certified Associate.
+- **Cloud & Ops:** AWS Foundation (Securing AWS), ESET Managed Cloud Security Specialist, IBM OS Security.
 
 ---
 
@@ -70,12 +81,8 @@ A high-performance SAST framework with a Rust core. **19k+ downloads** and count
 
 ---
 
-## 📊 GitHub Stats
-[![commiter.top badge](https://user-badge.committers.top/italy/ParzivalHack.svg)](https://user-badge.committers.top/italy/ParzivalHack)
-*Currently ranked in the **Top 250 GitHub Developers in Italy**.*
-
 <details>
-  <summary>Click here for detailed metrics</summary>
+  <summary><b>📈 View GitHub Metrics</b></summary>
   <p align="center">
     <img alt="GitHub Stats" src="https://github-readme-stats-fast.vercel.app/api?username=ParzivalHack&show_icons=true&hide=issues&icon_color=000000&hide_border=true&title_color=5391FE&text_color=555">
     <br>
