@@ -88,7 +88,7 @@ A State-of-the-Art hybrid Rust/Python Graph-based SAST Framework, made for CI/CD
     <img src="https://user-badge.committers.top/italy/ParzivalHack.svg" alt="committers.top badge">
   </a>
   <br />
-  Currently ranked in the <b>Top 250 GitHub Developers on Github</b> (in Italy).
+  Currently ranked in the <b>Top 250 Developers on Github</b> (in Italy).
 </div>
 
 <details>
