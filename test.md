@@ -41,20 +41,24 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 
 ### **Remote Code Execution (RCE) in AI Framework**
 I identified and responsibly disclosed a critical RCE vulnerability in a widely used AI library by leveraging my own SAST framework, **PySpector**.
+
 [Read the Research & Proof of Concept](https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/)
 
 ### **Public Acknowledgement — U.S. Department of Commerce**
 Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a full database takeover on a US Department of Commerce's subdomain.
+
 [Verify official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
 
 ### **CPython (Python Programming Language)**
 Contributed to the CPython core test suite by addressing a Path Traversal vulnerabilty, collaborating directly with the Python Security Response Team (PSRT).
+
 <a href="https://github.com/python/cpython/pull/138158">
   <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg" alt="Fix Path Traversal in multissltests.py">
 </a>
 
-### **Lead Dev and Mantainer of [The PySpector Project](https://parzivalhack.github.io/PySpector)**
+### **Lead Dev and Mantainer of [The PySpector Project](https://github.com/ParzivalHack/PySpector)**
 A State-of-the-Art hybrid Rust/Python Graph-based SAST Framework, made for CI/CD and large Python codebases. Engineered for high-speed, high-accuracy vulnerability scanning, performing 71% faster than Bandit, and 16.6x faster than Semgrep.
+
 <a href="https://github.com/ParzivalHack/PySpector">
   <img src="https://img.shields.io/badge/GitHub-PySpector-black?logo=github&style=for-the-badge" alt="GitHub PySpector">
 </a>
