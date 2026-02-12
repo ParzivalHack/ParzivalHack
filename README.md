@@ -50,13 +50,13 @@ Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a f
 [Verify official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
 
 ### **CPython (Python Programming Language)**
-Contributed to the CPython core test suite by addressing a Path Traversal vulnerabilty, collaborating directly with the Python Security Response Team (PSRT).
+Contributed to the CPython core test suite by addressing a Path Traversal vulnerability, collaborating directly with the Python Security Response Team (PSRT).
 
 <a href="https://github.com/python/cpython/pull/138158">
   <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg" alt="Fix Path Traversal in multissltests.py">
 </a>
 
-### **Lead Dev and Mantainer of [The PySpector Project](https://github.com/ParzivalHack/PySpector)**
+### **Lead Dev and Maintainer of [The PySpector Project](https://github.com/ParzivalHack/PySpector)**
 A State-of-the-Art hybrid Rust/Python Graph-based SAST Framework, made for CI/CD and large Python codebases. Engineered for high-speed, high-accuracy vulnerability scanning, performing 71% faster than Bandit, and 16.6x faster than Semgrep.
 
 <a href="https://github.com/ParzivalHack/PySpector">
