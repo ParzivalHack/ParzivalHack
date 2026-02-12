@@ -96,6 +96,6 @@ A State-of-the-Art hybrid Rust/Python Graph-based SAST Framework, made for CI/CD
   <p align="center">
     <img alt="GitHub Stats" src="https://github-readme-stats-fast.vercel.app/api?username=ParzivalHack&show_icons=true&hide=issues&icon_color=000000&hide_border=true&title_color=5391FE&text_color=555">
     <br>
-    <img alt="Top Languages" src="https://github-readme-stats-alpha.vercel.app/api/top-langs/?username=ParzivalHack&layout=compact&hide_border=true&title_color=5391FE&text_color=555&hide=html">
+    <img alt="Top Languages" src="https://github-readme-stats-eight.vercel.app/api/top-langs/?username=ParzivalHack&layout=compact&hide_border=true&title_color=5391FE&text_color=555&hide=html">
   </p>
 </details>
