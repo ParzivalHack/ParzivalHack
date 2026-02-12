@@ -25,14 +25,14 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 - **Technical Writeup:** [PySpector: how my own SAST Framework, led me to an RCE in a Major AI Library](https://medium.com/securitycertcommunity/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library-c29cdce15f9c) (SecurityCert s.r.l. - 2025)
 - **Academic Paper:** [Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol and Its Applications](https://zenodo.org/records/13895316) (CERN & OpenAIRE - 2024)
 - **General Cybersecurity Articles (English):**
-[SQLmap Tutorial for Beginners 2024](https://www.stationx.net/sqlmap-tutorial/) (StationX Ltd. - 2024)
-[XSS vs CSRF: The Difference Between These Popular Attacks](https://www.stationx.net/xss-vs-csrf/) (StationX Ltd. - 2024)
-[Best OS for Hacking](https://www.stationx.net/best-os-for-hacking/) (StationX Ltd. - 2024)
-[Top 15+ Cyber Security Tools](https://www.stationx.net/cyber-security-tools/) (StationX Ltd. - 2024)
-[Hacking With Python: Unlocking Python's Potential](https://www.stationx.net/hacking-with-python/) (StationX Ltd. - 2023)
-[SQL Injection Testing: All You Need to Know!](https://www.stationx.net/sql-injection-testing/) (StationX Ltd. - 2023)
+[SQLmap Tutorial for Beginners 2024](https://www.stationx.net/sqlmap-tutorial/) (StationX Ltd. - 2024),
+[XSS vs CSRF: The Difference Between These Popular Attacks](https://www.stationx.net/xss-vs-csrf/) (StationX Ltd. - 2024),
+[Best OS for Hacking](https://www.stationx.net/best-os-for-hacking/) (StationX Ltd. - 2024),
+[Top 15+ Cyber Security Tools](https://www.stationx.net/cyber-security-tools/) (StationX Ltd. - 2024),
+[Hacking With Python: Unlocking Python's Potential](https://www.stationx.net/hacking-with-python/) (StationX Ltd. - 2023),
+[SQL Injection Testing: All You Need to Know!](https://www.stationx.net/sql-injection-testing/) (StationX Ltd. - 2023),
 - **General Cybersecurity Articles (Italian):**
-[AI Offensive Security per Principianti (EP02)](https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-ep02-0b897b661a26) (SecurityCert s.r.l. - 2025)
+[AI Offensive Security per Principianti (EP02)](https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-ep02-0b897b661a26) (SecurityCert s.r.l. - 2025),
 [AI Offensive Security per Principianti (EP01)](https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-bcd8a8e82f4f) (SecurityCert s.r.l. - 2025)
 
 ---
