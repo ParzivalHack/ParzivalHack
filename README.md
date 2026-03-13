@@ -39,12 +39,19 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 
 ## 🛡️ Core Security Contributions
 
+### **0-click RCE in psf/black's Github Action (CVE-2026-31900)**
+I discovered and responsibly disclosed a High severity (CVSS4: 8.7) RCE vulnerability in the official psf/black GitHub Action (2.2B downloads). A permissive regex in action/main.py allowed direct URL references to bypass version validation, enabling arbitrary code execution on CI runners via a malicious pyproject.toml, triggered by the creation of a new pull request, without any mantainer interaction required. Patched in v26.3.0
+
+[Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba)
+[Check on NIST's National Vulnerability Database](https://nvd.nist.gov/vuln/detail/CVE-2026-31900)
+[Check the official Github Advisory](https://github.com/advisories/GHSA-v53h-f6m7-xcgm)
+
 ### **Remote Code Execution (RCE) in AI Framework**
 I identified and responsibly disclosed a critical RCE vulnerability in a widely used AI library by leveraging my own SAST framework, **PySpector**.
 
 [Read the Research & Proof of Concept](https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/)
 
-### **Public Acknowledgement — U.S. Department of Commerce**
+### **Public Acknowledgement from the U.S. Department of Commerce**
 Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a full database takeover on a US Department of Commerce's subdomain.
 
 [Verify official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
