@@ -22,7 +22,7 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 
 ### **Publications & Research**
 - **Whitepaper:** [Anchored Fictional Multilingual Injection (AFMI): A Deterministic Prompt-Based Safety Bypass in Web-Integrated LLM Search-Engine Pipelines](https://www.stationx.net/paper/anchored-fictional-multilingual-injection/) (StationX Ltd. - 2025)
-- **Technical Writeup:** [PySpector: how my own SAST Framework, led me to an RCE in a Major AI Library](https://medium.com/securitycertcommunity/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library-c29cdce15f9c) (SecurityCert s.r.l. - 2025)
+- **Technical Writeup:** [PySpector: how my own SAST Framework, led me to an RCE in a Major AI Library](https://medium.com/securitycertcommunity/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library-c29cdce15f9c) (SecurityCert s.r.l. - 2025), [CVE-2026-31900: How a Permissive Regex Led to RCE in psf/black’s GitHub Action](https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba) (SecurityCert s.r.l. - 2026)
 - **Academic Paper:** [Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol and Its Applications](https://zenodo.org/records/13895316) (CERN & OpenAIRE - 2024)
 - **General Cybersecurity Articles (English):**
 [SQLmap Tutorial for Beginners 2024](https://www.stationx.net/sqlmap-tutorial/) (StationX Ltd. - 2024),
@@ -30,7 +30,7 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 [Best OS for Hacking](https://www.stationx.net/best-os-for-hacking/) (StationX Ltd. - 2024),
 [Top 15+ Cyber Security Tools](https://www.stationx.net/cyber-security-tools/) (StationX Ltd. - 2024),
 [Hacking With Python: Unlocking Python's Potential](https://www.stationx.net/hacking-with-python/) (StationX Ltd. - 2023),
-[SQL Injection Testing: All You Need to Know!](https://www.stationx.net/sql-injection-testing/) (StationX Ltd. - 2023),
+[SQL Injection Testing: All You Need to Know!](https://www.stationx.net/sql-injection-testing/) (StationX Ltd. - 2023)
 - **General Cybersecurity Articles (Italian):**
 [AI Offensive Security per Principianti (EP02)](https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-ep02-0b897b661a26) (SecurityCert s.r.l. - 2025),
 [AI Offensive Security per Principianti (EP01)](https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-bcd8a8e82f4f) (SecurityCert s.r.l. - 2025)
@@ -43,7 +43,9 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 I discovered and responsibly disclosed a High severity (CVSS4: 8.7) RCE vulnerability in the official psf/black GitHub Action (2.2B downloads). A permissive regex in action/main.py allowed direct URL references to bypass version validation, enabling arbitrary code execution on CI runners via a malicious pyproject.toml, triggered by the creation of a new pull request, without any mantainer interaction required. Patched in v26.3.0
 
 [Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba)
+
 [Check on NIST's National Vulnerability Database](https://nvd.nist.gov/vuln/detail/CVE-2026-31900)
+
 [Check the official Github Advisory](https://github.com/advisories/GHSA-v53h-f6m7-xcgm)
 
 ### **Remote Code Execution (RCE) in AI Framework**
