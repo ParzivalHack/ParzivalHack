@@ -15,10 +15,11 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 ## 🛠️ My Expertise
 
 ### **Core Skills**
-- **AI Security:** LLM Red Teaming, Adversarial Machine Learning, and AI Security Assessments.
-- **Offensive Security:** Web Penetration Testing, Vulnerability Research, and Open Source Intelligence.
+- **AI Security:** LLM Red Teaming, Adversarial Machine Learning, and AI Safety Assessments.
+- **OSS Security:** Independent Python-focused Security Research on Open-Source Software.
+- **Offensive Security:** Web Penetration Testing, Vulnerability Research, and OSINT.
 - **Leadership & Strategy:** Technical Team Management, Product Management, and Business Development.
-- **Development & Scripting:** Python, Rust, PowerShell, Bash, and Batchfile (even if deprecated).
+- **Programming & Scripting:** Python, Rust, PowerShell, Bash, and Batchfile (even if deprecated).
 
 ### **Publications & Research**
 - **Whitepaper:** [Anchored Fictional Multilingual Injection (AFMI): A Deterministic Prompt-Based Safety Bypass in Web-Integrated LLM Search-Engine Pipelines](https://www.stationx.net/paper/anchored-fictional-multilingual-injection/) (StationX Ltd. - 2025)
