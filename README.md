@@ -58,11 +58,18 @@ Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a f
 
 [Verify official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
 
+### **Requests**
+Contribured to the Requests library by the Python Software Foundation, by reporting what was initially thought to be a minor security flaw, but ended up being classified as a bug instead and fixed in this PR:
+
+<a href="https://github.com/psf/requests/pull/7308">
+  <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg">
+</a>
+
 ### **CPython (Python Programming Language)**
-Contributed to the CPython core test suite by addressing a Path Traversal vulnerability, collaborating directly with the Python Security Response Team (PSRT).
+Contributed to the CPython core test suite by addressing a Path Traversal vulnerability (tho impact was minor, since its "only" a dev test suite)
 
 <a href="https://github.com/python/cpython/pull/138158">
-  <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg" alt="Fix Path Traversal in multissltests.py">
+  <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg">
 </a>
 
 ### **Lead Dev and Maintainer of [The PySpector Project](https://github.com/ParzivalHack/PySpector)**
