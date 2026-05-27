@@ -59,7 +59,7 @@ Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a f
 [Verify official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
 
 ### **Requests**
-Contribured to the Requests library by the Python Software Foundation, by reporting what was initially thought to be a minor security flaw, but ended up being classified as a bug instead and fixed in this PR:
+Contribured to the Requests library (made by the Python Software Foundation), by reporting what was initially thought to be a minor security flaw, but ended up being classified as a bug instead and fixed in this PR:
 
 <a href="https://github.com/psf/requests/pull/7308">
   <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg">
