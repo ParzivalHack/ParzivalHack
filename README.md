@@ -40,6 +40,16 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 
 ## 🛡️ Core Security Contributions
 
+### **Argument Injection in Red Hat's Ansible (core) leading to RCE (CVE-2026-11332)**
+I found and responsibly disclosed a High severity (CVSS score: 7.8) Argument Injection in Red Hat's Ansible-core, leading to Remote Code Execution.
+
+[Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-11332-how-i-found-an-argument-injection-in-ansible-leading-to-rce-0050b41b9679)
+
+[Check on NIST's National Vulnerability Database](https://nvd.nist.gov/vuln/detail/CVE-2026-11332)
+
+[Check the official Red Hat Advisory](https://access.redhat.com/security/cve/cve-2026-11332)
+
+
 ### **0-click RCE in psf/black's Github Action (CVE-2026-31900)**
 I discovered and responsibly disclosed a High severity (CVSS4: 8.7) RCE vulnerability in the official psf/black GitHub Action (2.2B downloads). A permissive regex in action/main.py allowed direct URL references to bypass version validation, enabling arbitrary code execution on CI runners via a malicious pyproject.toml, triggered by the creation of a new pull request, without any mantainer interaction required. Patched in v26.3.0
 
