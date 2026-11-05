@@ -40,55 +40,17 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 
 ## 🛡️ Core Security Contributions
 
-### **Argument Injection in Red Hat's Ansible (core) leading to RCE (CVE-2026-11332)**
-I found and responsibly disclosed a High severity (CVSS score: 7.8) Argument Injection in Red Hat's Ansible-core, leading to Remote Code Execution.
-
-[Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-11332-how-i-found-an-argument-injection-in-ansible-leading-to-rce-0050b41b9679)
-
-[Check on NIST's National Vulnerability Database](https://nvd.nist.gov/vuln/detail/CVE-2026-11332)
-
-[Check the official Red Hat Advisory](https://access.redhat.com/security/cve/cve-2026-11332)
-
-
-### **0-click RCE in psf/black's Github Action (CVE-2026-31900)**
-I discovered and responsibly disclosed a High severity (CVSS4: 8.7) RCE vulnerability in the official psf/black GitHub Action (2.2B downloads). A permissive regex in action/main.py allowed direct URL references to bypass version validation, enabling arbitrary code execution on CI runners via a malicious pyproject.toml, triggered by the creation of a new pull request, without any mantainer interaction required. Patched in v26.3.0
-
-[Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba)
-
-[Check on NIST's National Vulnerability Database](https://nvd.nist.gov/vuln/detail/CVE-2026-31900)
-
-[Check the official Github Advisory](https://github.com/advisories/GHSA-v53h-f6m7-xcgm)
-
-### **Remote Code Execution (RCE) in AI Framework**
-I identified and responsibly disclosed a critical RCE vulnerability in a widely used AI library by leveraging my own SAST framework, **PySpector**.
-
-[Read the Research & Proof of Concept](https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/)
-
-### **Public Acknowledgement from the U.S. Department of Commerce**
-Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a full database takeover on a US Department of Commerce's subdomain.
-
-[Verify official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments)
-
-### **Requests**
-Contribured to the Requests library (made by the Python Software Foundation), by reporting what was initially thought to be a minor security flaw, but ended up being classified as a bug instead and fixed in this PR:
-
-<a href="https://github.com/psf/requests/pull/7308">
-  <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg">
-</a>
-
-### **CPython (Python Programming Language)**
-Contributed to the CPython core test suite by addressing a Path Traversal vulnerability (tho impact was minor, since its "only" a dev test suite)
-
-<a href="https://github.com/python/cpython/pull/138158">
-  <img src="https://img.shields.io/badge/PR-GH--138158-blue.svg">
-</a>
-
-### **Lead Dev and Maintainer of [The PySpector Project](https://github.com/ParzivalHack/PySpector)**
-A State-of-the-Art hybrid Rust/Python Graph-based SAST Framework, made for CI/CD and large Python codebases. Engineered for high-speed, high-accuracy vulnerability scanning, performing 71% faster than Bandit, and 16.6x faster than Semgrep.
-
-<a href="https://github.com/ParzivalHack/PySpector">
-  <img src="https://img.shields.io/badge/GitHub-PySpector-black?logo=github&style=for-the-badge" alt="GitHub PySpector">
-</a>
+| Title | Description | CVE ID | Links |
+|---|---|---|---|
+| **Unauthenticated Server-Side Template Injection leading to RCE in LMFDB** | Discovered and responsibly disclosed a Critical (CVSS4: 10.0) unauthenticated SSTI (CWE-94, CWE-1336) in the L-functions and Modular Forms Database (LMFDB). The `/knowledge/render/<ID>` endpoint spliced request data, including every query-string key and value, directly into a Jinja template rendered in an unsandboxed environment. A single unauthenticated GET request was enough to achieve OS-level Remote Code Execution, confirmed against the live lmfdb.org production instance with a non-destructive `id` call. Patched in commit `01829bd`. | Pending | [GitHub Advisory](https://github.com/LMFDB/lmfdb/security/advisories/GHSA-6jw3-pmcx-2xww) |
+| **Disabled TLS Certificate Verification in OpenAlgo** | Found by my `pyspector-monitor` pipeline at SatoriCI. OpenAlgo's SMTP code (versions >= 1.0.0.29, < 2.0.3.1) disabled both hostname and certificate verification (CWE-295), allowing Man-in-the-Middle attacks to capture SMTP credentials and intercept password reset links (account takeover primitive). Medium severity (CVSS4: 6.0). Fixed in v2.0.3.1. | CVE-2026-120250 | [Read the full writeup](https://blog.satori.ci/CVE-2026-120250-OpenAlgo)<br>[CVE.org record](https://www.cve.org/CVERecord?id=CVE-2026-120250)<br>[GitHub Advisory](https://github.com/marketcalls/openalgo/security/advisories/GHSA-4vvw-xw2w-38g8) |
+| **Argument Injection in Red Hat's Ansible-core leading to RCE** | Found and responsibly disclosed a High severity (CVSS: 7.8) Argument Injection in Red Hat's Ansible-core, leading to Remote Code Execution. | CVE-2026-11332 | [Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-11332-how-i-found-an-argument-injection-in-ansible-leading-to-rce-0050b41b9679)<br>[NIST NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-11332)<br>[Red Hat Advisory](https://access.redhat.com/security/cve/cve-2026-11332) |
+| **0-click RCE in psf/black's GitHub Action** | Discovered and responsibly disclosed a High severity (CVSS4: 8.7) RCE in the official psf/black GitHub Action (2.2B downloads). A permissive regex in `action/main.py` allowed direct URL references to bypass version validation, enabling arbitrary code execution on CI runners via a malicious `pyproject.toml`, triggered by the creation of a new pull request with no maintainer interaction required. Patched in v26.3.0. | CVE-2026-31900 | [Read the full writeup](https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba)<br>[NIST NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-31900)<br>[GitHub Advisory](https://github.com/advisories/GHSA-v53h-f6m7-xcgm) |
+| **Remote Code Execution (RCE) in AI Framework** | Identified and responsibly disclosed a critical RCE vulnerability in a widely used AI library, by leveraging my own SAST framework, PySpector. | N/A | [Research & Proof of Concept](https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/) |
+| **Public Acknowledgement from the U.S. Department of Commerce** | Discovered and reported a Critical, High-Impact Error-based SQLi, leading to a full database takeover on a US Department of Commerce subdomain. | N/A | [Official acknowledgement](https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments) |
+| **Requests (Python Software Foundation)** | Reported what was initially thought to be a minor security flaw in the Requests library, which was ultimately classified as a bug and fixed upstream. | N/A | [PR #7308](https://github.com/psf/requests/pull/7308) |
+| **CPython (Python Programming Language)** | Contributed to the CPython core test suite by addressing a Path Traversal vulnerability (minor impact, since it only affected the dev test suite). | N/A | [PR #138158](https://github.com/python/cpython/pull/138158) |
+| **Lead Dev and Maintainer of PySpector** | State-of-the-art hybrid Rust/Python graph-based SAST framework, made for CI/CD and large Python codebases. Engineered for high-speed, high-accuracy vulnerability scanning, performing 2.1x faster than Bandit and 3.7x faster than Semgrep. | N/A | [GitHub: PySpector](https://github.com/ParzivalHack/PySpector) |
 
 ---
 
