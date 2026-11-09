@@ -53,6 +53,12 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 | **CPython (Python Programming Language)** | Contributed to the CPython core test suite by addressing a Path Traversal vulnerability (minor impact, since it only affected the dev test suite). | N/A | [PR #138158](https://github.com/python/cpython/pull/138158) |
 | **Lead Dev and Maintainer of PySpector** | State-of-the-art hybrid Rust/Python graph-based SAST framework, made for CI/CD and large Python codebases. Engineered for high-speed, high-accuracy vulnerability scanning, performing 2.1x faster than Bandit and 3.7x faster than Semgrep. | N/A | [GitHub: PySpector](https://github.com/ParzivalHack/PySpector) |
 
+#### Minor Security Contributions
+This list shows the vulnerabilities i found in really small projects, that got fixed and published, though are too small to request a CVE ID for:
+- https://github.com/rollopack/MikroTik-Mass-Updater/security/advisories/GHSA-76jf-q6rp-xrqp
+- https://github.com/tjcsl/cslbot/security/advisories/GHSA-r2r8-rxr2-5542
+- https://github.com/mosandlt/Bosch-Smart-Home-Camera-Tool-HomeAssistant/security/advisories/GHSA-pqpv-xgfh-pmg9
+
 ---
 
 ## 📜 Relevant Certifications
