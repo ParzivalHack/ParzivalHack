@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tommaso Bona (ParzivalHack): a quest in ASCII</title>
+<meta name="description" content="Tommaso Bona, aka ParzivalHack: OSS and AI security researcher, IT and security consultant. His profile, told as a small ASCII quest you can walk through.">
+<meta name="theme-color" content="#04080a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2304080a'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='20' font-weight='700' text-anchor='middle' fill='%23e3a04a'%3E!%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#04080a; --panel:#080e10; --line:#22312b;
+  --ink:#d9e4dd; --dim:#8a9a92; --grass:#3fa565; --amber:#e3a04a; --blood:#c8524a;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--night);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.55;overflow:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+#fx{touch-action:none;cursor:crosshair}
+a{color:var(--amber);text-underline-offset:3px}
+a:hover{color:#ffd08a}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;text-align:left}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* quest tracker */
+#hud{position:fixed;top:max(14px,env(safe-area-inset-top));left:14px;width:292px;max-width:calc(100vw - 28px);background:rgba(6,11,12,.86);border:1px solid var(--line);padding:10px 12px 12px;z-index:5}
+#hud h1{font-size:13px;font-weight:600;margin:0;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#hud h1 button{color:var(--amber);font-weight:600}
+#hud h1 span{color:var(--dim);font-weight:400}
+#hud ol{list-style:none;margin:8px 0 0;padding:0}
+#hud li button{display:flex;gap:8px;width:100%;padding:2px 0;color:var(--ink)}
+#hud li button:hover{color:var(--amber)}
+#hud li .box{color:var(--dim);flex:none}
+#hud li.done button{color:var(--dim)}
+#hud li.done .box{color:var(--grass)}
+#hud li .n{margin-left:auto;color:var(--dim);flex:none}
+#hud p{margin:8px 0 0;color:var(--dim);font-size:12px}
+#hud.closed ol,#hud.closed p{display:none}
+
+#top{position:fixed;top:max(14px,env(safe-area-inset-top));right:14px;z-index:5;display:flex;gap:8px}
+.btn{background:rgba(6,11,12,.86);border:1px solid var(--line);padding:7px 12px;color:var(--ink)}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.btn.go{background:var(--amber);border-color:var(--amber);color:#120b02;font-weight:600}
+.btn.go:hover{background:#ffd08a;color:#120b02}
+
+#toast{position:fixed;left:50%;bottom:max(22px,env(safe-area-inset-bottom));transform:translateX(-50%);background:rgba(6,11,12,.9);border:1px solid var(--line);padding:7px 14px;z-index:5;max-width:calc(100vw - 28px);text-align:center;opacity:0;transition:opacity .3s;pointer-events:none}
+#toast.on{opacity:1}
+
+/* reading panel */
+#panel{position:fixed;top:0;right:0;bottom:0;width:min(470px,100vw);background:var(--panel);border-left:1px solid var(--line);z-index:8;transform:translateX(102%);transition:transform .22s ease-out;display:flex;flex-direction:column}
+#panel.on{transform:none}
+#panel header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 20px 12px;border-bottom:1px dashed var(--line)}
+#panel h2{font-size:19px;line-height:1.3;margin:0;font-weight:600;color:#f1f6f2}
+#panel .sub{margin:6px 0 0;color:var(--amber);font-size:13px}
+#panel .x{color:var(--dim);font-size:13px;padding:2px 6px;border:1px solid var(--line);flex:none}
+#panel .x:hover{color:var(--amber);border-color:var(--amber)}
+#pbody{padding:14px 20px 28px;overflow:auto;flex:1}
+.prose p{margin:0 0 12px;max-width:62ch}
+.prose h3{font-size:13px;font-weight:600;color:var(--grass);margin:20px 0 6px}
+.prose ul{margin:0 0 12px;padding:0;list-style:none}
+.prose li{padding-left:18px;position:relative;margin-bottom:6px}
+.prose li::before{content:"-";position:absolute;left:2px;color:var(--dim)}
+.prose dl{margin:0 0 12px;display:grid;grid-template-columns:max-content 1fr;gap:3px 14px}
+.prose dt{color:var(--dim)}
+.prose dd{margin:0}
+.prose b{color:#f1f6f2;font-weight:600}
+.sev{display:inline-block;padding:0 7px;border:1px solid currentColor;font-size:12px;margin-right:6px}
+.sev.c{color:var(--blood)} .sev.h{color:var(--amber)} .sev.m{color:#d6cf7a}
+
+/* intro + plain page */
+#intro{position:fixed;inset:0;z-index:20;display:grid;place-items:center;background:radial-gradient(ellipse at center,rgba(4,8,10,.72),rgba(4,8,10,.94));padding:24px}
+#intro .in{max-width:620px}
+#intro pre{margin:0 0 4px;color:var(--grass);font:inherit;font-size:12px;line-height:1.15}
+#intro h1{font-size:clamp(34px,8vw,68px);line-height:1;margin:10px 0 14px;font-weight:600;letter-spacing:-.02em;color:#f1f6f2}
+#intro p{margin:0 0 12px;max-width:56ch}
+#intro .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+#intro .btn{padding:10px 16px}
+#plain{position:fixed;inset:0;z-index:30;background:var(--night);overflow:auto;display:none;padding:28px 22px 80px}
+#plain.on{display:block}
+#plain .in{max-width:760px;margin:0 auto}
+#plain h1{font-size:30px;margin:18px 0 4px;font-weight:600}
+#plain h2{font-size:17px;color:var(--amber);margin:38px 0 10px;padding-top:14px;border-top:1px dashed var(--line);font-weight:600}
+#plain h4{font-size:14px;margin:22px 0 2px;color:#f1f6f2}
+#plain .sub{margin:0 0 8px;color:var(--dim)}
+.hide{display:none!important}
+@media (max-width:640px){
+  #hud{width:auto;right:auto}
+  #top{top:auto;bottom:max(64px,calc(env(safe-area-inset-bottom) + 64px));right:14px}
+  #panel{top:auto;height:60vh;width:100vw;border-left:0;border-top:1px solid var(--line);transform:translateY(102%)}
+}
+@media (prefers-reduced-motion:reduce){#panel,#toast{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<canvas id="fx" tabindex="0" aria-label="ASCII game world. Click to walk; use the quest list to travel to each landmark, or open the plain page for a text version."></canvas>
+
+<nav id="hud" class="hide" aria-label="Quest">
+  <h1><button id="hudToggle" aria-expanded="true">Quest: who is Parzival?</button><span id="hudCount"></span></h1>
+  <ol id="hudList"></ol>
+  <p>Click the ground to walk. Click a quest line to travel there.</p>
+</nav>
+<div id="top" class="hide"><button class="btn" id="plainBtn">Read as a plain page</button></div>
+<div id="toast" role="status"></div>
+
+<aside id="panel" role="dialog" aria-labelledby="ptitle" aria-hidden="true">
+  <header><div><h2 id="ptitle"></h2><p class="sub" id="psub"></p></div><button class="x" id="pclose" aria-label="Close">close</button></header>
+  <div id="pbody" class="prose"></div>
+</aside>
+
+<section id="intro">
+  <div class="in">
+<pre aria-hidden="true">  \ | / ,\ |/ '\ | / , \|/ ' \ | /, \ |/
+ ,\|/ ' \ | o ,\|/ * ' \|/ , o \|/ ' \|</pre>
+    <h1>Tommaso Bona</h1>
+    <p>Also known as ParzivalHack. Open-source and AI security researcher, IT and security consultant, based in Milan.</p>
+    <p>This site is a small ASCII quest. Walk Parzival through the meadow, cross the river, and visit eight landmarks to learn the rest.</p>
+    <div class="row">
+      <button class="btn go" id="startBtn">Start the quest</button>
+      <button class="btn" id="plainBtn2">Read as a plain page</button>
+    </div>
+  </div>
+</section>
+
+<main id="plain" aria-label="Plain page"><div class="in">
+  <button class="btn" id="plainBack">Back to the quest</button>
+  <div id="plainBody" class="prose"></div>
+</div></main>
+
+<noscript><div style="position:fixed;inset:0;z-index:99;background:#04080a;padding:28px;overflow:auto">
+<h1>Tommaso Bona (ParzivalHack)</h1>
+<p>Open-source and AI security researcher, IT and security consultant at Tralerighe, Milan. This site is an interactive ASCII quest and needs JavaScript.</p>
+<p><a href="https://github.com/ParzivalHack">GitHub</a>, <a href="https://www.linkedin.com/in/tommaso-bona">LinkedIn</a>, <a href="mailto:tommasobona04@gmail.com">tommasobona04@gmail.com</a></p>
+</div></noscript>
+
+<script>
+(function(){
+'use strict';
+/* ============================== content ============================== */
+const L=(href,text)=>`<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
+const GROUPS=[
+ {id:'who',  label:'Read the waystone',            head:'About'},
+ {id:'road', label:'Walk the career road',         head:'Career'},
+ {id:'bugs', label:'Inspect the petrified bugs',   head:'Vulnerability research'},
+ {id:'forge',label:'Visit the PySpector forge',    head:'PySpector'},
+ {id:'scrip',label:'Browse the scriptorium',       head:'Writing and research papers'},
+ {id:'seals',label:'Step into the circle of seals',head:'Certifications'},
+ {id:'camp', label:'Stop by the guild camp',       head:'Community and volunteering'},
+ {id:'raven',label:'Find the raven post',          head:'Contact'}
+];
+const POIS=[
+ {id:'who',g:'who',kind:'obelisk',x:470,y:1236,name:'Waystone',
+  title:'Tommaso Bona, aka ParzivalHack',sub:'IT and security consultant, independent OSS and AI security researcher',
+  html:`<p>I started in a SOC at 17, watching alerts scroll by and wondering how the bugs behind them got shipped in the first place. Four years later I am on the other side of that question: I find those bugs in the open-source software everyone depends on (Ansible, psf/black, major AI libraries) and disclose them properly.</p>
+  <p>Along the way I co-founded a startup and ran it as CTO to a $500k valuation, wrote for StationX, published 15+ papers and articles, and built PySpector because the SAST tool I wanted did not exist. Today I split my time between security research at SatoriCI, consulting, AI and LLM security research, and shipping open-source security tooling.</p>
+  <dl><dt>Role</dt><dd>Security Researcher at SatoriCI; IT &amp; Security Consultant at Tralerighe</dd><dt>Research</dt><dd>OSS and AI security, independent</dd><dt>Base</dt><dd>Milan, Italy</dd><dt>Languages</dt><dd>Italian (native), English (C1), Spanish (A2)</dd><dt>Stack</dt><dd>Python, Rust, PowerShell, Bash, Batch</dd></dl>
+  <h3>What I work on</h3>
+  <ul><li><b>AI security:</b> LLM red teaming, adversarial machine learning, AI safety assessments.</li>
+  <li><b>OSS security:</b> independent, Python-focused research on open-source software.</li>
+  <li><b>Offensive security:</b> web penetration testing, vulnerability research, OSINT.</li>
+  <li><b>Leadership:</b> technical team management, product management, business development.</li></ul>
+  <h3>Neurodivergent, and saying so</h3>
+  <p>I have ADHD and Autism diagnoses. They are disabilities, no way around that, but in this field they also turn into concrete advantages: pattern recognition, hyperfocus, lateral thinking, and an instinct for the edge cases everyone else skims past.</p>`},
+
+ {id:'netech',g:'road',kind:'tower',x:770,y:1206,name:'Netech watchtower',year:'2022',
+  title:'Cyber Security Specialist, then SOC Analyst, then SOC System Engineer',sub:'NETECH S.r.l., Milan (on-site). July 2022 to May 2023',
+  html:`<p>Where it started. Four months as an intern Cyber Security Specialist: helpdesk on networking and security problems, and active monitoring of client endpoints and critical systems.</p>
+  <p>Then an apprenticeship as <b>SOC Analyst (L1)</b>, watching SIEM and EDR on the full ESET suite and resolving incidents by hand, remotely, on the affected machines.</p>
+  <p>Six months into a planned eighteen I was promoted to <b>SOC System Engineer</b>, keeping my SOC duties and adding systems administration on top.</p>`},
+ {id:'mediaset',g:'road',kind:'sign',x:1060,y:1204,name:'Mediaset',year:'2023',
+  title:'IT Specialist, Service Desk',sub:'Mediaset, Cologno Monzese (on-site). June to August 2023',
+  html:`<p>Full-time IT specialist: Active Directory user management, service desk, and Python scripts to automate the repetitive parts.</p>`},
+ {id:'stationx',g:'road',kind:'sign',x:1390,y:1200,name:'StationX',year:'2023',
+  title:'Cybersecurity Writer, later Business Development Advisor',sub:'StationX Ltd., London (remote). August 2023 to March 2025',
+  html:`<p>Freelance writer for one of Europe's largest cybersecurity blogs: technical articles on web penetration testing, security tooling and operating systems.</p>
+  <p>I then proposed, and helped build, StationX's current <b>white papers platform</b>, working as a business development advisor and marketing strategist.</p>`},
+ {id:'voyxa',g:'road',kind:'sign',x:2130,y:1200,name:'Voyxa',year:'2024',
+  title:'Co-Founder and CTO',sub:'Voyxa Corp, Doral, Florida (remote). February 2024 to September 2025',
+  html:`<p>Co-founded Voyxa, an AI-driven voice helpdesk, and took it from zero to a <b>$500k valuation in 10 months</b>, including a $100k pre-seed round. Finalist at Digithon, Italy's largest pitch event, where I was the technical spokesperson.</p>
+  <p>As CTO for a year and a half I ran four units (web full stack, AI, DevOps, SOC), <b>21 people</b> in all, through the MVP and then the market release, and handled clients, suppliers and investors.</p>
+  <p>After stepping down as CTO I stayed on the board as a member and majority shareholder until the end of September 2025, when I exited my shares.</p>`},
+ {id:'digi',g:'road',kind:'sign',x:2450,y:1196,name:'Digitalizzato',year:'2025',
+  title:'CTO as a Service',sub:'Digitalizzato, Naples (hybrid). January to June 2025',
+  html:`<p>Six-month contract as <b>fractional CTO</b>: owned the whole MVP lifecycle, recruited the technical team, and covered the product's information and operational security.</p>`},
+ {id:'tralerighe',g:'road',kind:'sign',x:2770,y:1192,name:'Tralerighe',year:'2025',
+  title:'IT & Security Consultant',sub:'TRALERIGHE s.n.c., Milan (remote). September 2025 to present',
+  html:`<p>Consultant inside Tralerighe's Service Provider Unit. The work runs from migrating clients' web infrastructure, to securing their sites with automated VAPT, to monitoring client machines and preventing and handling security incidents with the ESET suite.</p>`},
+ {id:'satori',g:'road',kind:'sign',x:2905,y:1194,name:'SatoriCI',year:'now',
+  title:'Security Researcher',sub:'SatoriCI. November 2026 to present',
+  html:`<p>The newest stop on the road: security research at ${L('https://satori.ci/','SatoriCI')}.</p>
+  <p>We already had history. My <code>pyspector-monitor</code> pipeline runs at SatoriCI, and it is what found CVE-2026-120250 in OpenAlgo.</p>`},
+
+ {id:'lmfdb',g:'bugs',kind:'bug',sev:'c',name:'CVE-2026-123198',
+  title:'Unauthenticated template injection to RCE in LMFDB',sub:'CVE-2026-123198',
+  html:`<p><span class="sev c">critical</span>CVSS4 10.0</p>
+  <p>Server-side template injection (CWE-94, CWE-1336) in the L-functions and Modular Forms Database. The <code>/knowledge/render/&lt;ID&gt;</code> endpoint spliced request data, including every query-string key and value, straight into a Jinja template rendered in an unsandboxed environment.</p>
+  <p>One unauthenticated GET request gave OS-level remote code execution, confirmed against the live lmfdb.org production instance with a non-destructive <code>id</code> call. Patched in commit <code>01829bd</code>.</p>
+  <ul><li>${L('https://www.cve.org/CVERecord?id=CVE-2026-123198','CVE.org record')}</li><li>${L('https://github.com/LMFDB/lmfdb/security/advisories/GHSA-6jw3-pmcx-2xww','GitHub advisory')}</li></ul>`},
+ {id:'black',g:'bugs',kind:'bug',sev:'h',name:'CVE-2026-31900',
+  title:"0-click RCE in psf/black's GitHub Action",sub:'CVE-2026-31900',
+  html:`<p><span class="sev h">high</span>CVSS4 8.7</p>
+  <p>A permissive regex in <code>action/main.py</code> let direct URL references slip past version validation in the official psf/black Action (2.2B downloads). A malicious <code>pyproject.toml</code> meant arbitrary code execution on CI runners, triggered just by opening a pull request, with no maintainer interaction. Patched in v26.3.0.</p>
+  <ul><li>${L('https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba','Full writeup')}</li><li>${L('https://nvd.nist.gov/vuln/detail/CVE-2026-31900','NIST NVD')}</li><li>${L('https://github.com/advisories/GHSA-v53h-f6m7-xcgm','GitHub advisory')}</li></ul>`},
+ {id:'ansible',g:'bugs',kind:'bug',sev:'h',name:'CVE-2026-11332',
+  title:"Argument injection to RCE in Red Hat's Ansible-core",sub:'CVE-2026-11332',
+  html:`<p><span class="sev h">high</span>CVSS 7.8</p>
+  <p>Argument injection in ansible-core leading to remote code execution. Disclosed in coordination with Red Hat's security team and credited in the official advisory.</p>
+  <ul><li>${L('https://medium.com/securitycertcommunity/cve-2026-11332-how-i-found-an-argument-injection-in-ansible-leading-to-rce-0050b41b9679','Full writeup')}</li><li>${L('https://nvd.nist.gov/vuln/detail/CVE-2026-11332','NIST NVD')}</li><li>${L('https://access.redhat.com/security/cve/cve-2026-11332','Red Hat advisory')}</li></ul>`},
+ {id:'openalgo',g:'bugs',kind:'bug',sev:'m',name:'CVE-2026-120250',
+  title:'Disabled TLS certificate verification in OpenAlgo',sub:'CVE-2026-120250',
+  html:`<p><span class="sev m">medium</span>CVSS4 6.0</p>
+  <p>Found by my <code>pyspector-monitor</code> pipeline at SatoriCI. OpenAlgo's SMTP code (versions 1.0.0.29 up to 2.0.3.1) turned off both hostname and certificate verification (CWE-295), so a man-in-the-middle could capture SMTP credentials and intercept password reset links, which is an account takeover primitive. Fixed in v2.0.3.1.</p>
+  <ul><li>${L('https://blog.satori.ci/CVE-2026-120250-OpenAlgo','Full writeup')}</li><li>${L('https://www.cve.org/CVERecord?id=CVE-2026-120250','CVE.org record')}</li><li>${L('https://github.com/marketcalls/openalgo/security/advisories/GHSA-4vvw-xw2w-38g8','GitHub advisory')}</li></ul>`},
+ {id:'openwhyd',g:'bugs',kind:'bug',sev:'m',name:'CVE-2026-123617',
+  title:'NoSQL injection in Openwhyd',sub:'CVE-2026-123617',
+  html:`<p><span class="sev m">medium</span></p>
+  <p>NoSQL injection through <code>request.body</code> in Openwhyd's <code>controller()</code>, leading to disclosure of private information. Found and responsibly disclosed.</p>
+  <ul><li>${L('https://www.cve.org/CVERecord?id=CVE-2026-123617','CVE.org record')}</li><li>${L('https://github.com/openwhyd/openwhyd/security/advisories/GHSA-hfg3-vq24-hprp','GitHub advisory')}</li></ul>`},
+ {id:'ailib',g:'bugs',kind:'bug',sev:'c',name:'AI library RCE',
+  title:'RCE in a widely used AI library',sub:'No CVE assigned. Found by PySpector',
+  html:`<p><span class="sev c">critical</span></p>
+  <p>A critical remote code execution bug in a widely used AI library, surfaced by my own SAST framework while I was dogfooding it. The tool found the bug; I confirmed the exploit and disclosed it.</p>
+  <ul><li>${L('https://securitycert.it/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library/','Research and proof of concept')}</li></ul>`},
+ {id:'doc',g:'bugs',kind:'bug',sev:'c',name:'US Commerce SQLi',
+  title:'Error-based SQL injection at the U.S. Department of Commerce',sub:'Public acknowledgement from the agency',
+  html:`<p><span class="sev c">critical</span>full database takeover</p>
+  <p>Found and reported a critical, high-impact error-based SQL injection on a U.S. Department of Commerce subdomain, leading to a full database takeover. The agency acknowledged it publicly.</p>
+  <ul><li>${L('https://doc.responsibledisclosure.com/hc/en-us/articles/10801394414227-Acknowledgments','Official acknowledgement')}</li></ul>`},
+ {id:'minor',g:'bugs',kind:'cairn',x:1100,y:560,name:'Cairn of smaller finds',
+  title:'Smaller finds and upstream fixes',sub:'Contributions that never needed a CVE',
+  html:`<ul><li><b>Requests (Python Software Foundation):</b> reported what first looked like a minor security flaw; it was classified as a bug and fixed upstream. ${L('https://github.com/psf/requests/pull/7308','PR #7308')}</li>
+  <li><b>CPython:</b> fixed a path traversal in the core test suite (minor impact, dev test suite only). ${L('https://github.com/python/cpython/pull/138158','PR #138158')}</li></ul>
+  <h3>Advisories in small projects</h3>
+  <ul><li>${L('https://github.com/rollopack/MikroTik-Mass-Updater/security/advisories/GHSA-76jf-q6rp-xrqp','MikroTik-Mass-Updater')}</li>
+  <li>${L('https://github.com/tjcsl/cslbot/security/advisories/GHSA-r2r8-rxr2-5542','cslbot')}</li>
+  <li>${L('https://github.com/mosandlt/Bosch-Smart-Home-Camera-Tool-HomeAssistant/security/advisories/GHSA-pqpv-xgfh-pmg9','Bosch Smart Home Camera Tool for Home Assistant')}</li></ul>`},
+
+ {id:'forge',g:'forge',kind:'forge',x:1180,y:1940,name:'PySpector forge',
+  title:'PySpector',sub:'Lead developer and maintainer',
+  html:`<p>A hybrid Rust and Python, graph-based SAST framework built for CI/CD and large Python codebases. I built it because the static analysis tool I wanted did not exist.</p>
+  <ul><li><b>2.1x faster than Bandit</b> and <b>3.7x faster than Semgrep</b>.</li>
+  <li><b>50k+ downloads</b> on PyPI.</li>
+  <li>It found a critical RCE in a major AI library, and its <code>pyspector-monitor</code> pipeline at SatoriCI found CVE-2026-120250.</li>
+  <li>Presented at Cyber Frontiers 2026.</li></ul>
+  <ul><li>${L('https://github.com/ParzivalHack/PySpector','PySpector on GitHub')}</li><li>${L('https://pypi.org/project/pyspector/','PySpector on PyPI')}</li></ul>
+  <h3>Also on the anvil</h3>
+  <ul><li>${L('https://github.com/ParzivalHack/Aegis.rs','Aegis.rs')}</li><li>${L('https://github.com/ParzivalHack/T-XSS','T-XSS')}</li><li>${L('https://github.com/ParzivalHack/T-DoS','T-DoS')}</li><li>${L('https://github.com/ParzivalHack?tab=repositories','All repositories')}</li></ul>`},
+
+ {id:'scrip',g:'scrip',kind:'library',x:2380,y:600,name:'Scriptorium',
+  title:'Writing and research papers',sub:'15+ publications: white papers, writeups and articles',
+  html:`<h3>White paper</h3>
+  <ul><li>${L('https://www.stationx.net/paper/anchored-fictional-multilingual-injection/','Anchored Fictional Multilingual Injection (AFMI): A Deterministic Prompt-Based Safety Bypass in Web-Integrated LLM Search-Engine Pipelines')} (StationX, 2025)</li></ul>
+  <h3>Technical writeups</h3>
+  <ul><li>${L('https://medium.com/securitycertcommunity/cve-2026-31900-50800bafafba',"CVE-2026-31900: How a Permissive Regex Led to RCE in psf/black's GitHub Action")} (SecurityCert, 2026)</li>
+  <li>${L('https://medium.com/securitycertcommunity/cve-2026-11332-how-i-found-an-argument-injection-in-ansible-leading-to-rce-0050b41b9679','CVE-2026-11332: How I Found an Argument Injection in Ansible Leading to RCE')} (SecurityCert, 2026)</li>
+  <li>${L('https://blog.satori.ci/CVE-2026-120250-OpenAlgo','CVE-2026-120250: OpenAlgo')} (SatoriCI, 2026)</li>
+  <li>${L('https://medium.com/securitycertcommunity/pyspector-how-my-own-sast-framework-led-me-to-an-rce-in-a-major-ai-library-c29cdce15f9c','PySpector: how my own SAST Framework led me to an RCE in a Major AI Library')} (SecurityCert, 2025)</li></ul>
+  <h3>Academic paper</h3>
+  <ul><li>${L('https://zenodo.org/records/13895316','Fragmentation, Encryption, and Redundancy in Data Transmission: A Novel Secure UDP-Based Fragmentation Protocol and Its Applications')} (Zenodo, 2024)</li></ul>
+  <h3>Articles in English</h3>
+  <ul><li>${L('https://www.stationx.net/sqlmap-tutorial/','SQLmap Tutorial for Beginners 2024')} (StationX, 2024)</li>
+  <li>${L('https://www.stationx.net/xss-vs-csrf/','XSS vs CSRF: The Difference Between These Popular Attacks')} (StationX, 2024)</li>
+  <li>${L('https://www.stationx.net/best-os-for-hacking/','Best OS for Hacking')} (StationX, 2024)</li>
+  <li>${L('https://www.stationx.net/cyber-security-tools/','Top 15+ Cyber Security Tools')} (StationX, 2024)</li>
+  <li>${L('https://www.stationx.net/hacking-with-python/',"Hacking With Python: Unlocking Python's Potential")} (StationX, 2023)</li>
+  <li>${L('https://www.stationx.net/sql-injection-testing/','SQL Injection Testing: All You Need to Know!')} (StationX, 2023)</li></ul>
+  <h3>Articles in Italian</h3>
+  <ul><li>${L('https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-ep02-0b897b661a26','AI Offensive Security per Principianti (EP02)')} (SecurityCert, 2025)</li>
+  <li>${L('https://medium.com/securitycertcommunity/ai-offensive-security-per-principianti-bcd8a8e82f4f','AI Offensive Security per Principianti (EP01)')} (SecurityCert, 2025)</li></ul>`},
+
+ {id:'seals',g:'seals',kind:'altar',x:2420,y:1960,name:'Circle of seals',
+  title:'Certifications',sub:'One standing stone per issuer',
+  html:`<dl><dt>CompTIA</dt><dd>SecAI+ (in progress)</dd>
+  <dt>ISC2</dt><dd>Certified in Cybersecurity (CC); NIST Cybersecurity Framework 2.0</dd>
+  <dt>EC-Council</dt><dd>E|HE, N|DE, D|FE (the former Cybersecurity Essentials series)</dd>
+  <dt>Security Blue Team</dt><dd>Blue Team Junior Analyst (BTJA)</dd>
+  <dt>SkillFront</dt><dd>ISO/IEC 27001:2022 Associate</dd>
+  <dt>ESET</dt><dd>Managed Client Security Specialist; Managed Cloud Security Specialist</dd>
+  <dt>Fortinet</dt><dd>Certified Associate in Cybersecurity</dd>
+  <dt>IBM</dt><dd>Roles, Processes and Operating System's Security</dd></dl>`},
+
+ {id:'camp',g:'camp',kind:'tent',x:470,y:1950,name:'Guild camp',
+  title:'Community and volunteering',sub:'Work I do because it matters',
+  html:`<ul><li><b>Guardian Group, PURSUIT team (Project 1591):</b> volunteer OSINT analyst, helping fight child exploitation together with law enforcement.</li>
+  <li><b>Python Software Foundation:</b> contributing member, with fixes and reports across CPython, Requests and Black.</li>
+  <li><b>SecurityCert:</b> community moderator and mentor.</li>
+  <li><b>ADHD and Autism advocacy:</b> I talk openly about neurodiversity as an asset for innovation in security.</li>
+  <li><b>Top 250 developers on GitHub in Italy</b>, per ${L('https://user-badge.committers.top/italy/ParzivalHack','committers.top')}.</li></ul>`},
+
+ {id:'raven',g:'raven',kind:'post',x:3030,y:1196,name:'Raven post',
+  title:'Send a raven',sub:'Open to interesting problems',
+  html:`<p>The fastest way to reach me is email. I read everything.</p>
+  <dl><dt>Email</dt><dd><a href="mailto:tommasobona04@gmail.com">tommasobona04@gmail.com</a></dd>
+  <dt>LinkedIn</dt><dd>${L('https://www.linkedin.com/in/tommaso-bona','linkedin.com/in/tommaso-bona')}</dd>
+  <dt>GitHub</dt><dd>${L('https://github.com/ParzivalHack','github.com/ParzivalHack')}</dd></dl>`}
+];
+
+/* ============================== helpers ============================== */
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+function rng(seed){let a=seed>>>0;return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}}
+function h2(x,y){let h=Math.imul(x|0,374761393)+Math.imul(y|0,668265263);h=Math.imul(h^(h>>>13),1274126177);return((h^(h>>>16))>>>0)/4294967296}
+function vn(x,y){const xi=Math.floor(x),yi=Math.floor(y);let fx=x-xi,fy=y-yi;fx=fx*fx*(3-2*fx);fy=fy*fy*(3-2*fy);
+  const a=h2(xi,yi),b=h2(xi+1,yi),c=h2(xi,yi+1),d=h2(xi+1,yi+1);return a+(b-a)*fx+(c-a)*fy+(a-b-c+d)*fx*fy}
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const FONT='"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace';
+
+/* ============================== world ============================== */
+const W=3400,H=2400,TILE=16,TC=Math.ceil(W/TILE),TR=Math.ceil(H/TILE);
+const riverX=y=>1780+170*Math.sin(y/380)+90*Math.sin(y/170+1.3);
+const riverHW=y=>64+16*Math.sin(y/230);
+const BR={y:1250,h:54};BR.x0=riverX(BR.y)-riverHW(BR.y)-48;BR.x1=riverX(BR.y)+riverHW(BR.y)+48;
+const onBridge=(x,y)=>Math.abs(y-BR.y)<BR.h/2&&x>BR.x0&&x<BR.x1;
+const inRiver=(x,y,m)=>Math.abs(x-riverX(y))<riverHW(y)+(m||0);
+const isWater=(x,y)=>inRiver(x,y)&&!onBridge(x,y);
+const ROADS=[
+ [[330,1300],[520,1300],[900,1262],[1300,1250],[2300,1250],[2700,1242],[3060,1250]],
+ [[900,1262],[950,900],[1100,650]],
+ [[900,1262],[880,1650],[860,1968]],
+ [[440,1994],[860,1968],[1180,1992]],
+ [[2300,1250],[2335,900],[2380,650]],
+ [[2300,1250],[2365,1600],[2420,1880]]
+];
+function distRoad(x,y){let best=1e9;for(const r of ROADS)for(let i=0;i<r.length-1;i++){const ax=r[i][0],ay=r[i][1],bx=r[i+1][0],by=r[i+1][1];
+  const dx=bx-ax,dy=by-ay;let t=((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy);t=clamp(t,0,1);const d=Math.hypot(x-ax-dx*t,y-ay-dy*t);if(d<best)best=d}return best}
+
+// place the bug statues on an arc around the barrow
+(function(){const bugs=POIS.filter(p=>p.kind==='bug');bugs.forEach((p,i)=>{const a=(158+i*(224/(bugs.length-1)))*Math.PI/180;p.x=Math.round(1100+250*Math.cos(a));p.y=Math.round(520+165*Math.sin(a))})})();
+POIS.forEach(p=>{p.sx=p.x;p.sy=p.y+24;p.seen=false});
+const SPAWN={x:540,y:1306};
+const CLEAR=[[1100,500,330],[2420,1960,210],[SPAWN.x,SPAWN.y,170]].concat(POIS.filter(p=>p.kind!=='bug').map(p=>[p.x,p.y,170]));
+const STONES=[];for(let i=0;i<8;i++){const a=(i/8)*Math.PI*2+0.39;STONES.push({x:2420+128*Math.cos(a),y:1950+82*Math.sin(a)})}
+
+const cost=new Uint8Array(TC*TR);          // 0 blocked, else step cost
+function buildCost(){
+  for(let r=0;r<TR;r++)for(let c=0;c<TC;c++){const x=c*TILE+8,y=r*TILE+8;let v=13;
+    if(c<3||r<3||c>TC-4||r>TR-4)v=0;else if(isWater(x,y))v=44;else if(distRoad(x,y)<26||onBridge(x,y))v=10;cost[r*TC+c]=v}
+}
+function blockCircle(x,y,rad){const c0=Math.floor((x-rad)/TILE),c1=Math.floor((x+rad)/TILE),r0=Math.floor((y-rad)/TILE),r1=Math.floor((y+rad)/TILE);
+  for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++){if(c<0||r<0||c>=TC||r>=TR)continue;if(Math.hypot(c*TILE+8-x,r*TILE+8-y)<=rad+4)cost[r*TC+c]=0}}
+function blockRect(x0,y0,x1,y1){for(let r=Math.floor(y0/TILE);r<=Math.floor(y1/TILE);r++)for(let c=Math.floor(x0/TILE);c<=Math.floor(x1/TILE);c++)if(c>=0&&r>=0&&c<TC&&r<TR)cost[r*TC+c]=0}
+const walk=(x,y)=>{const c=Math.floor(x/TILE),r=Math.floor(y/TILE);return c>=0&&r>=0&&c<TC&&r<TR&&cost[r*TC+c]>0};
+
+/* ============================== sprites ============================== */
+let PR=1,ZOOM=1,DPR=1;
+const RAMP=" .`':,;-~=+*rcxsvzoeaunwmdbpqkOQ0U8$%&#MW@";
+const COL={stone:[206,214,220],pine:[70,165,140],leaf:[74,170,98],wood:[168,118,70],amber:[236,168,78],red:[205,72,62],bone:[238,242,244],slate:[120,140,170],moss:[110,150,120],gold:[220,208,120]};
+function mk(cols,rows,fs,fn,seed){
+  const cw=fs*0.6,ch=fs*0.94,R=rng(seed||7);
+  const cv=document.createElement('canvas');cv.width=Math.ceil(cols*cw*PR);cv.height=Math.ceil(rows*ch*PR);
+  const g=cv.getContext('2d');g.scale(PR,PR);g.font=`600 ${fs}px ${FONT}`;g.textBaseline='middle';g.textAlign='center';
+  const cells=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const o=fn(c,r,R);if(o)cells.push([c,r,o])}
+  g.fillStyle='rgba(3,7,8,.93)';for(const[c,r,o]of cells)if(o.bg!==false)g.fillRect(c*cw-.4,r*ch-.4,cw+.8,ch+.8);
+  for(const[c,r,o]of cells){const b=clamp(o.b,0,1),k=COL[o.k||'stone'],f=.3+.7*Math.pow(b,.8);
+    let ch_=o.g;if(!ch_){const i=clamp(Math.round(b*(RAMP.length-1)+(R()-.5)*7),1,RAMP.length-1);ch_=RAMP[i]}
+    if(ch_===' ')continue;g.fillStyle=`rgb(${k[0]*f|0},${k[1]*f|0},${k[2]*f|0})`;g.fillText(ch_,(c+.5)*cw,(r+.5)*ch)}
+  return{cv,w:cols*cw,h:rows*ch};
+}
+const S={};
+function buildSprites(){
+  const dome=(nx,ny)=>{const z=Math.sqrt(Math.max(0,1-nx*nx-ny*ny));return .18+.82*clamp(-nx*.45-ny*.5+z*.62,0,1)};
+  S.rocks=[];for(let i=0;i<5;i++){const cols=9+i*3,rows=5+i*2;S.rocks.push(mk(cols,rows,9,(c,r,R)=>{
+    const nx=(c+.5-cols/2)/(cols/2),ny=(r+.5-rows/2)/(rows/2),e=nx*nx+ny*ny+(h2(c+i*31,r)-.5)*.22;if(e>1)return null;return{b:dome(nx,ny)}},40+i))}
+  S.pines=[];for(let i=0;i<4;i++){const cols=17,rows=19+i,mid=8;S.pines.push(mk(cols,rows,9,(c,r,R)=>{
+    const body=rows-3;if(r>=body)return Math.abs(c-mid)<=1?{b:.3+.1*(mid-c),k:'wood'}:null;
+    const tier=r%5,hw=.6+r*.33+tier*.62-Math.floor(r/5)*.55+(h2(c,r+i*9)-.5)*.9;const d=c-mid;if(Math.abs(d)>hw)return null;
+    return{b:.5-(d/Math.max(hw,1))*.32+h2(c*3+i,r*7)*.3+(tier===4?.12:0)-(tier===0?.16:0),k:'pine'}},60+i))}
+  S.oaks=[];for(let i=0;i<3;i++){const cols=19,rows=17;S.oaks.push(mk(cols,rows,9,(c,r,R)=>{
+    if(r>=12)return Math.abs(c-9)<=1&&r<17?{b:.34,k:'wood'}:null;const nx=(c+.5-9.5)/9.2,ny=(r+.5-6.2)/6.4;
+    if(nx*nx+ny*ny+(vn(c*.6+i*5,r*.6)-.5)*.5>1)return null;return{b:dome(nx,ny)*.85+h2(c+i,r)*.25,k:'leaf'}},70+i))}
+  const tower=(cols,rows,flagK)=>mk(cols,rows,9,(c,r,R)=>{
+    const mid=(cols-1)/2,d=c-mid;
+    if(r<3){if(c===Math.round(mid))return{b:.6,k:'wood',g:'|',bg:false};if(r<2&&c>mid&&c<=mid+4)return{b:.9-(c-mid)*.08,k:flagK,g:r?'=':'~',bg:false};return null}
+    if(r===3)return c%2===0?{b:.75}:null;
+    const top=r<7,hw=top?mid+.2:mid-1;if(Math.abs(d)>hw)return null;
+    let b=.28+.66*Math.cos(((d+mid*.35)/(mid+1))*1.35);if(top)b+=.1;if(r===7)b*=.5;
+    const slit=Math.abs(d)<=.6&&((r>=10&&r<=12)||(rows>22&&r>=16&&r<=18));if(slit)return{b:.9,k:'amber',g:r%2?':':'|'};
+    if(Math.abs(d)<=1.4&&r>=rows-4)return r===rows-4?{b:.5,g:'^'}:{b:.05,g:' '};
+    return{b}},11);
+  S.tower=tower(15,27,'red');S.post=tower(11,19,'amber');
+  const house=(roofK,chim)=>mk(25,18,9,(c,r,R)=>{const mid=12,d=c-mid;
+    if(chim&&c>=17&&c<=18&&r<5)return{b:.5-(c-17)*.15};
+    if(r<3)return null;
+    if(r<10){const hw=6.4+(r-3)*.72;if(Math.abs(d)>hw)return null;return{b:.66-(d/hw)*.26+((r%2)?.12:-.04),k:roofK,g:(r%2)?undefined:(d<0?'/':'\\')}}
+    if(Math.abs(d)>10.5)return null;
+    if(Math.abs(d)<=1.4&&r>=13)return r===13?{b:.55,k:'wood',g:'^'}:{b:.05,g:' '};
+    if((Math.abs(d)>=5&&Math.abs(d)<=6.6)&&(r===12||r===13))return{b:.95,k:'amber',g:'#'};
+    return{b:.62-(d/10.5)*.22+(r===10?-.25:0),k:chim?'stone':'bone'}},13);
+  S.forge=house('wood',true);S.library=house('slate',false);
+  S.tent=mk(21,13,9,(c,r,R)=>{const d=c-10,hw=.6+r*.82;if(Math.abs(d)>hw)return null;
+    if(r>6&&Math.abs(d)<=(r-6)*.42)return{b:.04,g:' '};return{b:.62-(d/hw)*.28,k:(Math.floor((c+r*.5)/3)%2)?'amber':'bone'}},17);
+  S.obelisk=mk(9,16,9,(c,r,R)=>{const d=c-4,hw=r<2?r*.9+.5:r>=14?4:2.2+r*.06;if(Math.abs(d)>hw)return null;
+    if(d===0&&r>=4&&r<=11&&r%2===0)return{b:1,k:'amber',g:'$%&#'[(r/2|0)%4]};return{b:.6-(d/3)*.3+(r>=14?-.12:0)}},19);
+  S.stone=mk(5,9,9,(c,r,R)=>{const d=c-2;if(r===0&&Math.abs(d)>1)return null;if(d===0&&r===3)return{b:1,k:'amber',g:'*'};return{b:.45-d*.14+h2(c,r)*.1}},23);
+  S.altar=mk(11,5,9,(c,r,R)=>{const d=c-5;if(r===0)return d===0?{b:1,k:'amber',g:'*',bg:false}:null;if(r===1&&Math.abs(d)>4)return null;return{b:.5-(d/5)*.25-(r>3?.15:0)}},29);
+  S.cairn=mk(13,8,9,(c,r,R)=>{const d=c-6,hw=.8+r*.82+(h2(c,r*5)-.5);if(Math.abs(d)>hw)return null;
+    if(d===0&&r===4)return{b:1,k:'amber',g:'+'};return{b:.5-(d/Math.max(hw,1))*.3+h2(c*7,r)*.18}},31);
+  S.fire=mk(7,2,9,(c,r,R)=>r===1||(c>0&&c<6)?{b:.4,k:'wood',g:'\\_/|_/\\'[c+r]}:null,33);
+  S.sign={};for(const y of['2022','2023','2024','2025','now'])S.sign[y]=mk(9,9,9,(c,r,R)=>{
+    if(r<4){if(r===1&&c>=2&&c<=5){const t=y==='now'?'now ':y;return{b:1,k:'amber',g:t[c-2]}}
+      if(r===2&&c>=2&&c<=6)return{b:.55,k:'amber',g:'-'};return{b:.42+(r===0||r===3?.12:0),k:'wood',g:(r===0||r===3)?'=':(c===0||c===8?'|':' ')}}
+    return c===4?{b:.45,k:'wood',g:'|',bg:false}:null},37);
+  S.bug={};for(const[sev,fs,eye]of[['c',8.5,'red'],['h',7.5,'amber'],['m',6.5,'gold']])S.bug[sev]=mk(17,15,fs,(c,r,R)=>{const d=c-8;
+    if(r>=13)return Math.abs(d)<=7-(r===13?1:0)?{b:.34+(r===13?.14:0),g:r===13?'=':'#'}:null;
+    if(r===0)return d===-2?{b:.6,g:'\\',bg:false}:d===2?{b:.6,g:'/',bg:false}:null;
+    const hx=d/2.4,hy=(r-2.2)/1.7;if(hx*hx+hy*hy<=1){if(r===2&&Math.abs(d)===1)return{b:1,k:eye,g:'o'};return{b:.5-hx*.25}}
+    const bx=d/4.6,by=(r-8)/4.6;if(bx*bx+by*by<=1){if(d===0&&r>5)return{b:.16,g:'|'};return{b:dome(bx,by)*.9}}
+    if((r===5||r===8||r===11)&&Math.abs(d)>=5&&Math.abs(d)<=7)return{b:.6,g:Math.abs(d)===5?'-':(d<0?(r===5?'\\':'/'):(r===5?'/':'\\')),bg:false};
+    return null},41);
+  const bc=Math.ceil((BR.x1-BR.x0)/5.4),brows=7;
+  S.bridge=mk(bc,brows,9,(c,r,R)=>{if(r===0||r===brows-1)return{b:c%4===0?.85:.5,k:'wood',g:c%4===0?'o':'=',bg:r!==0};
+    return{b:.34+h2(c,r)*.2+(c%3===0?-.14:0),k:'wood',g:c%3===0?'|':'#='[(c+r)%2]}},43);
+  // the hero
+  const top=["    787    ","   89998   ","   92129   ","   89398   ","   aaaaa   ","  78999a7  "," 6789998a6 "," 67899987 6"," 6 88988 6 ","   88788   "];
+  const legs=[["   87 78   ","   77 77   ","   66 66   ","  777 777  "],
+              ["   87 78   ","   77 77   ","   66  6   ","  777      "],
+              ["   87 78   ","   77 77   ","   6  66   ","      777  "]];
+  S.hero=legs.map(l=>{const m=top.concat(l);return mk(11,14,6.6,(c,r)=>{const t=m[r][c];if(t===' ')return null;
+    if(t==='a')return{b:.85,k:'red'};const b=+t/9;return{b:b<.4?.05:.45+b*.55,k:'bone',g:b<.4?' ':undefined}},51)});
+}
+
+/* ============================== scene objects ============================== */
+let ents=[],dirt=[],flowers=[];
+function buildScene(){
+  ents=[];buildCost();const R=rng(2026);
+  const near=(x,y)=>CLEAR.some(c=>Math.hypot(x-c[0],y-c[1])<c[2]);
+  for(let gy=20;gy<H;gy+=62)for(let gx=20;gx<W;gx+=62){const x=gx+R()*44,y=gy+R()*44,e=Math.min(x,y,W-x,H-y);
+    const p=e<230?.92-e/230*.6:(vn(x/310+50,y/310+20)>.66?.42:.02);
+    if(R()>p||distRoad(x,y)<88||inRiver(x,y,52)||near(x,y))continue;
+    const pine=vn(x/500,y/500)>.42||R()<.3;ents.push({x,y,spr:pine?S.pines[R()*4|0]:S.oaks[R()*3|0]});blockCircle(x,y-5,11)}
+  for(let i=0;i<80;i++){const x=120+R()*(W-240),y=120+R()*(H-240);if(distRoad(x,y)<50||inRiver(x,y,20)||near(x,y))continue;
+    const s=S.rocks[Math.min(4,R()*R()*5|0)];ents.push({x,y,spr:s});blockRect(x-s.w*.42,y-s.h*.45,x+s.w*.42,y)}
+  for(const s of STONES){ents.push({x:s.x,y:s.y,spr:S.stone});blockCircle(s.x,s.y-4,7)}
+  ents.push({x:SPAWN.x+62,y:SPAWN.y+46,spr:S.fire,fire:1},{x:560,y:1996,spr:S.fire,fire:1});
+  blockCircle(SPAWN.x+62,SPAWN.y+42,8);blockCircle(560,1992,8);
+  for(const p of POIS){const s=p.kind==='sign'?S.sign[p.year]:p.kind==='bug'?S.bug[p.sev]:S[p.kind];p.spr=s;
+    ents.push({x:p.x,y:p.y,spr:s,poi:p});blockRect(p.x-s.w/2+5,p.y-Math.min(30,s.h*.5),p.x+s.w/2-5,p.y+2);
+    for(let dy=14;dy<=40;dy+=8)for(let dx=-8;dx<=8;dx+=8){const c=Math.floor((p.sx+dx)/TILE),r=Math.floor((p.y+dy)/TILE);if(!cost[r*TC+c])cost[r*TC+c]=13}}
+  ents.sort((a,b)=>a.y-b.y);
+  dirt=[];for(let y=0;y<H;y+=13)for(let x=0;x<W;x+=13){const px=x+R()*13,py=y+R()*13;if(R()<.62&&distRoad(px,py)<21&&!inRiver(px,py,4))dirt.push({x:px,y:py,g:".,`':;-"[R()*7|0],a:.28+R()*.34})}
+  flowers=[];for(let i=0;i<2600;i++){const x=60+R()*(W-120),y=60+R()*(H-120);if(distRoad(x,y)<28||inRiver(x,y,6))continue;
+    const t=R();flowers.push({x,y,g:t<.5?'.':t<.72?'o':t<.9?'*':'°',a:.45+R()*.5,ph:R()*6.28})}
+}
+
+/* ============================== grass (WebGL) ============================== */
+const glc=$('gl'),fxc=$('fx');let gl=null,GX=null,ctx=fxc.getContext('2d');
+const CH=400,CC=Math.ceil(W/CH),CRW=Math.ceil(H/CH);let chunks=[],blades=null,fallbackBlades=null;
+function buildGrass(){
+  const R=rng(99),SP=7.4,buckets=[];for(let i=0;i<CC*CRW;i++)buckets.push([]);
+  const solid=POIS.filter(p=>['forge','library','tower','post','tent'].includes(p.kind));
+  for(let gy=0;gy<H;gy+=SP)for(let gx=0;gx<W;gx+=SP){const x=gx+R()*SP,y=gy+R()*SP;
+    if(x>=W||y>=H||inRiver(x,y,3))continue;
+    const dr=distRoad(x,y);if(dr<12||(dr<30&&R()>(dr-12)/18))continue;
+    if(solid.some(p=>Math.abs(x-p.x)<p.spr.w/2-4&&y<p.y+3&&y>p.y-34))continue;
+    const patch=vn(x/240,y/240),flow=vn(x/430+7,y/430+3),rr=R();
+    buckets[Math.floor(y/CH)*CC+Math.floor(x/CH)].push(x,y,9+R()*8+patch*5,(flow-.5)*1.7+(R()-.5)*.75,clamp(.08+patch*.42+rr*rr*.55,0,1),R()*6.283)}
+  let n=0;chunks=[];for(const b of buckets){chunks.push({s:n,n:b.length/6});n+=b.length/6}
+  blades=new Float32Array(n*6);let o=0;for(const b of buckets){blades.set(b,o);o+=b.length}
+}
+function initGL(){
+  try{gl=glc.getContext('webgl2',{alpha:false,antialias:true})||glc.getContext('webgl',{alpha:false,antialias:true})}catch(e){gl=null}
+  if(!gl)return false;
+  const gl2=typeof WebGL2RenderingContext!=='undefined'&&gl instanceof WebGL2RenderingContext;
+  const ext=gl2?null:gl.getExtension('ANGLE_instanced_arrays');if(!gl2&&!ext){gl=null;return false}
+  const vs=`attribute vec2 a_c;attribute vec2 a_b;attribute vec4 a_p;
+uniform vec2 u_cam;uniform vec2 u_view;uniform float u_t;uniform float u_wind;uniform vec3 u_tr[16];
+varying vec3 v_col;
+void main(){
+ float w=sin(u_t*1.25+a_b.x*.011+a_b.y*.016+a_p.w)*.2+sin(u_t*3.1+a_p.w*5.)*.06;
+ float g=sin(a_b.x*.0042+a_b.y*.0021-u_t*.6+sin(a_b.y*.006)*1.2);g=smoothstep(.5,1.,g);
+ float ang=a_p.y+(w+g*.6)*u_wind;
+ float fl=0.;float px=0.;
+ for(int i=0;i<16;i++){vec3 tr=u_tr[i];vec2 d=a_b-tr.xy;d.y*=1.7;float f=tr.z*(1.-smoothstep(7.,30.,length(d)));fl=max(fl,f);px+=sign(d.x+.01)*f;}
+ ang+=clamp(px,-1.,1.)*1.15;
+ float len=a_p.x*(1.-.5*fl);
+ vec2 dir=vec2(sin(ang),-cos(ang));vec2 nr=vec2(-dir.y,dir.x);
+ vec2 p=a_b+dir*len*a_c.y+nr*a_c.x*(.8-.25*a_c.y);
+ vec2 n=(p-u_cam)/u_view*2.-1.;gl_Position=vec4(n.x,-n.y,0.,1.);
+ float s=a_p.z*(.5+.5*a_c.y)*(1.+g*.45)*(1.-.45*fl);
+ v_col=mix(vec3(.018,.085,.055),vec3(.25,.66,.40),clamp(s,0.,1.));
+}`;
+  const fs=`precision mediump float;varying vec3 v_col;void main(){gl_FragColor=vec4(v_col,1.);}`;
+  const sh=(t,src)=>{const s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s};
+  let prog;try{prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error('link')}catch(e){console.warn(e);gl=null;return false}
+  gl.useProgram(prog);
+  const aC=gl.getAttribLocation(prog,'a_c'),aB=gl.getAttribLocation(prog,'a_b'),aP=gl.getAttribLocation(prog,'a_p');
+  const qb=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,qb);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,0,1,0,-1,1,1,1]),gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(aC);gl.vertexAttribPointer(aC,2,gl.FLOAT,false,0,0);
+  const ib=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,ib);gl.bufferData(gl.ARRAY_BUFFER,blades,gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(aB);gl.enableVertexAttribArray(aP);
+  const div=(l,d)=>gl2?gl.vertexAttribDivisor(l,d):ext.vertexAttribDivisorANGLE(l,d);div(aB,1);div(aP,1);
+  GX={prog,aB,aP,ib,draw:(n)=>gl2?gl.drawArraysInstanced(gl.TRIANGLE_STRIP,0,4,n):ext.drawArraysInstancedANGLE(gl.TRIANGLE_STRIP,0,4,n),
+    u:n=>gl.getUniformLocation(prog,n)};
+  GX.uCam=GX.u('u_cam');GX.uView=GX.u('u_view');GX.uT=GX.u('u_t');GX.uWind=GX.u('u_wind');GX.uTr=GX.u('u_tr');
+  gl.clearColor(.016,.031,.035,1);return true;
+}
+const trail=new Float32Array(48);let trailI=1,lastDrop={x:0,y:0};
+function drawGrassGL(t,vx,vy,vw,vh){
+  gl.viewport(0,0,glc.width,glc.height);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.uniform2f(GX.uCam,vx,vy);gl.uniform2f(GX.uView,vw,vh);gl.uniform1f(GX.uT,t);gl.uniform1f(GX.uWind,reduce?.2:1);gl.uniform3fv(GX.uTr,trail);
+  gl.bindBuffer(gl.ARRAY_BUFFER,GX.ib);
+  const c0=clamp(Math.floor((vx-20)/CH),0,CC-1),c1=clamp(Math.floor((vx+vw+20)/CH),0,CC-1),r0=clamp(Math.floor((vy-20)/CH),0,CRW-1),r1=clamp(Math.floor((vy+vh+30)/CH),0,CRW-1);
+  for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++){const k=chunks[r*CC+c];if(!k.n)continue;
+    gl.vertexAttribPointer(GX.aB,2,gl.FLOAT,false,24,k.s*24);gl.vertexAttribPointer(GX.aP,4,gl.FLOAT,false,24,k.s*24+8);GX.draw(k.n)}
+}
+function drawGrass2D(t,vx,vy,vw,vh){ // fallback without WebGL: thinner, still alive
+  const cols=['#0d3a22','#1c6a3c','#35a060'];
+  for(let b=0;b<3;b++){ctx.beginPath();
+    for(let i=b;i<blades.length/6;i+=3){const o=i*6,x=blades[o],y=blades[o+1];if(x<vx-12||x>vx+vw+12||y<vy-4||y>vy+vh+20)continue;
+      const a=blades[o+3]+Math.sin(t*1.25+x*.011+y*.016+blades[o+5])*.2,l=blades[o+2];ctx.moveTo(x,y);ctx.lineTo(x+Math.sin(a)*l,y-Math.cos(a)*l)}
+    ctx.strokeStyle=cols[b];ctx.lineWidth=1.3;ctx.stroke()}
+}
+
+/* ============================== pathfinding ============================== */
+const gS=new Float32Array(TC*TR),par=new Int32Array(TC*TR),stamp=new Uint32Array(TC*TR),closed=new Uint32Array(TC*TR);let stampN=0;
+function nearestWalk(c,r){if(c>=0&&r>=0&&c<TC&&r<TR&&cost[r*TC+c])return[c,r];
+  for(let d=1;d<40;d++)for(let dy=-d;dy<=d;dy++)for(let dx=-d;dx<=d;dx++){if(Math.max(Math.abs(dx),Math.abs(dy))!==d)continue;const x=c+dx,y=r+dy;if(x>=0&&y>=0&&x<TC&&y<TR&&cost[y*TC+x])return[x,y]}
+  return null}
+function los(ax,ay,bx,by){const d=Math.hypot(bx-ax,by-ay),n=Math.ceil(d/6);const wEnd=isWater(ax,ay)||isWater(bx,by);
+  for(let i=0;i<=n;i++){const x=ax+(bx-ax)*i/n,y=ay+(by-ay)*i/n;if(!walk(x,y)||!walk(x+5,y)||!walk(x-5,y))return false;if(!wEnd&&isWater(x,y))return false}return true}
+function findPath(sx,sy,tx,ty){
+  const s=nearestWalk(Math.floor(sx/TILE),Math.floor(sy/TILE)),t0=[Math.floor(tx/TILE),Math.floor(ty/TILE)],t=nearestWalk(t0[0],t0[1]);if(!s||!t)return null;
+  const exact=t[0]===t0[0]&&t[1]===t0[1];stampN++;const S0=s[1]*TC+s[0],T=t[1]*TC+t[0];
+  const heap=[],fS=[];const push=(i,f)=>{let k=heap.length;heap.push(i);fS.push(f);while(k>0){const p=(k-1)>>1;if(fS[p]<=f)break;heap[k]=heap[p];fS[k]=fS[p];k=p}heap[k]=i;fS[k]=f};
+  const pop=()=>{const top=heap[0],li=heap.pop(),lf=fS.pop();const n=heap.length;if(n){let k=0;for(;;){let c=2*k+1;if(c>=n)break;if(c+1<n&&fS[c+1]<fS[c])c++;if(fS[c]>=lf)break;heap[k]=heap[c];fS[k]=fS[c];k=c}heap[k]=li;fS[k]=lf}return top};
+  gS[S0]=0;par[S0]=-1;stamp[S0]=stampN;push(S0,0);let found=false;
+  while(heap.length){const cur=pop();if(closed[cur]===stampN)continue;closed[cur]=stampN;if(cur===T){found=true;break}
+    const cx=cur%TC,cy=(cur/TC)|0;
+    for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const nx=cx+dx,ny=cy+dy;if(nx<0||ny<0||nx>=TC||ny>=TR)continue;const ni=ny*TC+nx,cst=cost[ni];if(!cst)continue;
+      if(dx&&dy&&(!cost[cy*TC+nx]||!cost[ny*TC+cx]))continue;
+      const g=gS[cur]+cst*(dx&&dy?1.414:1);if(stamp[ni]!==stampN||g<gS[ni]){gS[ni]=g;par[ni]=cur;stamp[ni]=stampN;push(ni,g+10*Math.hypot(nx-t[0],ny-t[1]))}}}
+  if(!found)return null;
+  let pts=[];for(let i=T;i!==-1;i=par[i])pts.push([(i%TC)*TILE+8,((i/TC)|0)*TILE+8]);pts.reverse();
+  pts[0]=[sx,sy];if(exact)pts[pts.length-1]=[tx,ty];
+  const out=[pts[0]];let i=0;while(i<pts.length-1){let j=pts.length-1;while(j>i+1&&!los(pts[i][0],pts[i][1],pts[j][0],pts[j][1]))j--;out.push(pts[j]);i=j}
+  out.shift();return out;
+}
+
+/* ============================== state ============================== */
+const hero={x:SPAWN.x,y:SPAWN.y,dir:1,path:null,goal:null,walkT:0,moving:false,wet:false};
+const cam={x:SPAWN.x,y:SPAWN.y-40};let VW=0,VH=0,started=false,openPoi=null,hover=null,marker=null,keys={};
+let parts=[],ripples=[],rippleT=0,windT=0,leafT=0;
+function resize(){
+  DPR=Math.min(window.devicePixelRatio||1,2);const w=innerWidth,h=innerHeight;
+  ZOOM=clamp(Math.min(w/1050,h/640),.62,1.5);const pr=DPR*ZOOM;
+  for(const c of[glc,fxc]){c.width=Math.round(w*DPR);c.height=Math.round(h*DPR)}
+  VW=w/ZOOM;VH=h/ZOOM;
+  if(Math.abs(pr-PR)>.01||!S.hero){PR=pr;buildSprites();const seen=POIS.map(p=>p.seen);buildScene();POIS.forEach((p,i)=>p.seen=seen[i])}
+}
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(resize,120)});
+
+/* ============================== quest + UI ============================== */
+const KEY='parzival-quest-v1';
+function save(){try{localStorage.setItem(KEY,JSON.stringify(POIS.filter(p=>p.seen).map(p=>p.id)))}catch(e){}}
+function load(){try{const a=JSON.parse(localStorage.getItem(KEY)||'[]');POIS.forEach(p=>p.seen=a.includes(p.id))}catch(e){}}
+function toast(msg,ms){const t=$('toast');t.textContent=msg;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),ms||3200)}
+function renderHud(){
+  const ol=$('hudList');ol.innerHTML='';let doneG=0;
+  for(const g of GROUPS){const ps=POIS.filter(p=>p.g===g.id),n=ps.filter(p=>p.seen).length,done=n===ps.length;if(done)doneG++;
+    const li=document.createElement('li');if(done)li.className='done';
+    li.innerHTML=`<button><span class="box">${done?'[x]':'[ ]'}</span><span>${g.label}</span>${ps.length>1?`<span class="n">${n}/${ps.length}</span>`:''}</button>`;
+    li.firstChild.onclick=()=>{let best=null,bd=1e9;for(const p of ps){if(p.seen&&!done)continue;const d=Math.hypot(p.x-hero.x,p.y-hero.y);if(d<bd){bd=d;best=p}}
+      closePanel();goPoi(best);if(innerWidth<=640)setHud(false)};
+    ol.appendChild(li)}
+  $('hudCount').textContent=doneG+'/'+GROUPS.length;return doneG;
+}
+function setHud(open){$('hud').classList.toggle('closed',!open);$('hudToggle').setAttribute('aria-expanded',open)}
+$('hudToggle').onclick=()=>setHud($('hud').classList.contains('closed'));
+function showPanel(p){
+  openPoi=p;$('ptitle').textContent=p.title;$('psub').textContent=p.sub;$('pbody').innerHTML=p.html;$('pbody').scrollTop=0;
+  const pn=$('panel');pn.classList.add('on');pn.setAttribute('aria-hidden','false');$('pclose').focus({preventScroll:true});
+  if(!p.seen){p.seen=true;save();const before=GROUPS.length;const d=renderHud();
+    if(d===before&&!showPanel.won){showPanel.won=true;toast('Quest complete. You now know Parzival; the raven post is still open if you want to write.',7000)}}
+}
+function closePanel(){if(!openPoi)return;openPoi=null;const pn=$('panel');pn.classList.remove('on');pn.setAttribute('aria-hidden','true')}
+$('pclose').onclick=()=>{closePanel();fxc.focus({preventScroll:true})};
+function buildPlain(){
+  let h=`<h1>Tommaso Bona</h1><p class="sub">Also known as ParzivalHack. This is the text of the quest, without the walking.</p>`;
+  for(const g of GROUPS){h+=`<h2>${g.head}</h2>`;const ps=POIS.filter(p=>p.g===g.id);
+    for(const p of ps){if(ps.length>1||g.id==='who')h+=`<h4>${p.title}</h4><p class="sub">${p.sub}</p>`;h+=p.html}}
+  $('plainBody').innerHTML=h;
+}
+function setPlain(on){$('plain').classList.toggle('on',on);if(on){$('plain').scrollTop=0;$('plainBack').focus()}}
+$('plainBtn').onclick=$('plainBtn2').onclick=()=>setPlain(true);
+$('plainBack').onclick=()=>{setPlain(false);if(!started)$('startBtn').focus()};
+function start(){started=true;$('intro').classList.add('hide');$('hud').classList.remove('hide');$('top').classList.remove('hide');if(innerWidth<=640)setHud(false);
+  fxc.focus({preventScroll:true});toast('Click anywhere to walk. The amber ! marks things worth reading.',5200)}
+$('startBtn').onclick=start;
+
+/* ============================== input ============================== */
+function toWorld(e){const r=fxc.getBoundingClientRect();return{x:cam.l+(e.clientX-r.left)/ZOOM,y:cam.t+(e.clientY-r.top)/ZOOM}}
+function poiAt(x,y){for(const p of POIS){const s=p.spr;if(x>p.x-s.w/2-8&&x<p.x+s.w/2+8&&y>p.y-s.h-26&&y<p.y+10)return p}return null}
+function goTo(x,y,poi){const path=findPath(hero.x,hero.y,x,y);if(!path||!path.length){if(poi&&Math.hypot(hero.x-x,hero.y-y)<30)showPanel(poi);return}
+  hero.path=path;hero.goal=poi||null;const e=path[path.length-1];marker={x:e[0],y:e[1],t:0}}
+function goPoi(p){if(!p)return;if(Math.hypot(hero.x-p.sx,hero.y-p.sy)<26){showPanel(p);return}goTo(p.sx,p.sy,p)}
+fxc.addEventListener('pointerdown',e=>{if(!started)return;const w=toWorld(e),p=poiAt(w.x,w.y);
+  if(openPoi&&(!p||p!==openPoi))closePanel();if(p)goPoi(p);else goTo(clamp(w.x,50,W-50),clamp(w.y,50,H-50))});
+fxc.addEventListener('pointermove',e=>{if(!started||e.pointerType==='touch')return;const w=toWorld(e);hover=poiAt(w.x,w.y);fxc.style.cursor=hover?'pointer':'crosshair'});
+addEventListener('keydown',e=>{
+  if(e.key==='Escape'){if($('plain').classList.contains('on'))setPlain(false);else closePanel();return}
+  if(!started||$('plain').classList.contains('on'))return;const t=e.target;if(t&&t.closest&&t.closest('#panel,#hud,#top'))return;
+  const k=e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'].includes(k)){keys[k]=true;e.preventDefault()}
+  if(k==='e'||k==='enter'){const p=nearPoi();if(p)showPanel(p)}});
+addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false});
+addEventListener('blur',()=>{keys={}});
+function nearPoi(){let b=null,bd=64;for(const p of POIS){const d=Math.hypot(hero.x-p.sx,hero.y-p.sy);if(d<bd){bd=d;b=p}}return b}
+
+/* ============================== update ============================== */
+function update(dt,t){
+  let kx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),ky=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
+  hero.wet=isWater(hero.x,hero.y);const sp=hero.wet?105:185;hero.moving=false;
+  if(kx||ky){hero.path=null;hero.goal=null;marker=null;const n=Math.hypot(kx,ky),dx=kx/n*sp*dt,dy=ky/n*sp*dt;
+    if(walk(hero.x+dx,hero.y)){hero.x+=dx;hero.moving=true}if(walk(hero.x,hero.y+dy)){hero.y+=dy;hero.moving=true}if(kx)hero.dir=kx}
+  else if(hero.path){let rem=sp*dt;while(rem>0&&hero.path.length){const[tx,ty]=hero.path[0],d=Math.hypot(tx-hero.x,ty-hero.y);
+      if(d<=rem){hero.x=tx;hero.y=ty;rem-=d;hero.path.shift()}else{hero.x+=(tx-hero.x)/d*rem;hero.y+=(ty-hero.y)/d*rem;if(Math.abs(tx-hero.x)>2)hero.dir=tx>hero.x?1:-1;rem=0}}
+    hero.moving=true;if(!hero.path.length){hero.path=null;marker=null;if(hero.goal){const g=hero.goal;hero.goal=null;showPanel(g)}}}
+  if(hero.moving)hero.walkT+=dt*(hero.wet?5:8.5);else hero.walkT=0;
+  // trail for the grass shader
+  trail[0]=hero.x;trail[1]=hero.y;trail[2]=hero.wet?0:1;
+  for(let i=1;i<16;i++)trail[i*3+2]*=Math.exp(-dt/1.6);
+  if(!hero.wet&&Math.hypot(hero.x-lastDrop.x,hero.y-lastDrop.y)>20){lastDrop={x:hero.x,y:hero.y};trail[trailI*3]=hero.x;trail[trailI*3+1]=hero.y;trail[trailI*3+2]=.9;trailI=trailI%15+1}
+  // water rings
+  rippleT-=dt;if(hero.wet&&rippleT<=0){ripples.push({x:hero.x,y:hero.y,t:0});rippleT=hero.moving?.22:.9}
+  ripples=ripples.filter(r=>(r.t+=dt)<1.5);
+  if(marker)marker.t+=dt;
+  // camera
+  const tx=hero.x+(openPoi&&innerWidth>640?Math.min(235,VW*.2):0),ty=hero.y-30+(openPoi&&innerWidth<=640?VH*.24:0),k=1-Math.exp(-dt*5);
+  cam.x+=(tx-cam.x)*k;cam.y+=(ty-cam.y)*k;
+  cam.l=VW>=W?(W-VW)/2:clamp(cam.x-VW/2,0,W-VW);cam.t=VH>=H?(H-VH)/2:clamp(cam.y-VH/2,0,H-VH);
+  cam.l=Math.round(cam.l*PR)/PR;cam.t=Math.round(cam.t*PR)/PR;
+  // particles
+  if(!reduce){
+    windT-=dt;if(windT<=0){windT=.25+Math.random()*.5;parts.push({k:'w',x:cam.l-80,y:cam.t+Math.random()*VH,vx:330+Math.random()*160,vy:0,t:0,m:6,s:['~ --  -','-  ~~ -- ~','--- ~','~~  -'][Math.random()*4|0],ph:Math.random()*6})}
+    leafT-=dt;if(leafT<=0){leafT=.5+Math.random();parts.push({k:'l',x:cam.l-10,y:cam.t+Math.random()*VH,vx:90+Math.random()*90,vy:10+Math.random()*30,t:0,m:9,s:",'`\""[Math.random()*4|0],ph:Math.random()*6})}
+    for(const e of ents){if(!e.fire&&!(e.poi&&e.poi.kind==='forge'))continue;if(e.x<cam.l-60||e.x>cam.l+VW+60||e.y<cam.t-60||e.y>cam.t+VH+220)continue;
+      if(Math.random()<dt*(e.fire?26:9)){const f=e.fire;parts.push({k:'f',x:e.x+(f?(Math.random()-.5)*16:28+Math.random()*6),y:f?e.y-8:e.y-e.spr.h+4,vx:(Math.random()-.5)*14+10,vy:-(f?34:22)-Math.random()*26,t:0,m:f?.6+Math.random()*.6:1.6+Math.random(),s:f?"^*'^,*"[Math.random()*6|0]:".:o°"[Math.random()*4|0],sm:!f})}}
+  }
+  for(const p of parts){p.t+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt}
+  parts=parts.filter(p=>p.t<p.m&&p.x<cam.l+VW+140);if(parts.length>400)parts.splice(0,parts.length-400);
+}
+
+/* ============================== render ============================== */
+function render(t){
+  const vx=cam.l,vy=cam.t;
+  if(gl)drawGrassGL(t,vx,vy,VW,VH);
+  ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,fxc.width,fxc.height);
+  if(!gl){ctx.fillStyle='#04080a';ctx.fillRect(0,0,fxc.width,fxc.height)}
+  ctx.setTransform(PR,0,0,PR,-vx*PR,-vy*PR);
+  if(!gl)drawGrass2D(t,vx,vy,VW,VH);
+  const vis=(x,y,m)=>x>vx-m&&x<vx+VW+m&&y>vy-m&&y<vy+VH+m;
+
+  // river
+  const y0=Math.max(0,vy-20),y1=Math.min(H,vy+VH+20);
+  ctx.beginPath();for(let y=y0;y<=y1;y+=12)ctx.lineTo(riverX(y)-riverHW(y),y);for(let y=y1;y>=y0;y-=12)ctx.lineTo(riverX(y)+riverHW(y),y);ctx.closePath();ctx.fillStyle='#050a13';ctx.fill();
+  ctx.font=`400 11px ${FONT}`;ctx.textBaseline='middle';ctx.textAlign='left';const cw=ctx.measureText('M').width,rh=8.5;
+  const tw=reduce?t*.25:t;
+  for(let r=Math.floor(y0/rh);r<=Math.ceil(y1/rh);r++){const y=r*rh,cx=riverX(y),hw=riverHW(y),c0=Math.ceil((cx-hw)/cw),c1=Math.floor((cx+hw)/cw);
+    if((c1+1)*cw<vx||c0*cw>vx+VW)continue;let a='',b='',c_='';
+    for(let c=c0;c<=c1;c++){const x=c*cw,edge=1-Math.abs(x-cx)/hw;let v=vn(c*.21+Math.sin(r*.13)*.8,r*.5-tw*1.7)+(h2(c,r)-.5)*.12;
+      for(const rp of ripples){const d=Math.hypot(x-rp.x,(y-rp.y)*1.9),rad=8+rp.t*46;if(Math.abs(d-rad)<5)v+=.5*(1-rp.t/1.5)}
+      if(edge<.13)v+=.2+.12*Math.sin(tw*2+r*.7);
+      let ga=' ',gb=' ',gc=' ';if(v>.86)gc=edge<.13?'~':'=';else if(v>.66)gb='~';else if(v>.45)ga='-';else if(v>.38)ga='.';
+      a+=ga;b+=gb;c_+=gc}
+    const x=c0*cw;ctx.fillStyle='#283e5a';ctx.fillText(a,x,y);ctx.fillStyle='#4a6c93';ctx.fillText(b,x,y);ctx.fillStyle='#9fb9d6';ctx.fillText(c_,x,y)}
+  if(vis((BR.x0+BR.x1)/2,BR.y,200))ctx.drawImage(S.bridge.cv,BR.x0,BR.y-S.bridge.h/2,BR.x1-BR.x0,S.bridge.h);
+
+  // road grit, flowers
+  ctx.font=`400 10px ${FONT}`;ctx.textAlign='center';
+  for(const d of dirt){if(!vis(d.x,d.y,8))continue;ctx.fillStyle=`rgba(150,140,120,${d.a})`;ctx.fillText(d.g,d.x,d.y)}
+  ctx.font=`600 9px ${FONT}`;
+  for(const f of flowers){if(!vis(f.x,f.y,8))continue;const tw2=f.g==='*'?.75+.25*Math.sin(t*2+f.ph):1;ctx.fillStyle=`rgba(226,238,230,${f.a*tw2})`;ctx.fillText(f.g,f.x+Math.sin(t*1.25+f.x*.011+f.y*.016)*1.6,f.y)}
+
+  // shadows
+  ctx.fillStyle='rgba(0,0,0,.4)';
+  for(const e of ents){if(!vis(e.x,e.y,160))continue;ctx.beginPath();ctx.ellipse(e.x+e.spr.w*.12,e.y-1,e.spr.w*.5,Math.max(4,e.spr.w*.13),0,0,6.3);ctx.fill()}
+  if(!hero.wet){ctx.beginPath();ctx.ellipse(hero.x+3,hero.y-1,15,5,0,0,6.3);ctx.fill()}
+
+  // destination marker
+  if(marker){const k=(marker.t*1.6)%1;ctx.strokeStyle=`rgba(227,160,74,${.8*(1-k)})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.ellipse(marker.x,marker.y,5+k*13,(5+k*13)*.45,0,0,6.3);ctx.stroke();
+    ctx.fillStyle='rgba(227,160,74,.9)';ctx.font=`600 10px ${FONT}`;ctx.fillText('x',marker.x,marker.y)}
+
+  // y-sorted world
+  let drawn=false;const drawHero=()=>{drawn=true;const f=hero.moving?[1,0,2,0][Math.floor(hero.walkT)%4]:0,s=S.hero[f],bob=hero.moving?Math.abs(Math.sin(hero.walkT*Math.PI))*1.6:Math.sin(t*2)*.5;
+    ctx.save();ctx.translate(hero.x,hero.y);
+    if(hero.wet){ctx.save();ctx.globalAlpha=.2;ctx.scale(hero.dir,-.75);ctx.drawImage(s.cv,0,0,s.cv.width,s.cv.height*.72,-s.w/2+Math.sin(t*3)*1.5,-s.h*.72,s.w,s.h*.72);ctx.restore();
+      ctx.scale(hero.dir,1);ctx.drawImage(s.cv,0,0,s.cv.width,s.cv.height*.72,-s.w/2,-s.h*.72-bob,s.w,s.h*.72)}
+    else{ctx.scale(hero.dir,1);ctx.drawImage(s.cv,-s.w/2,-s.h-bob,s.w,s.h)}
+    ctx.restore()};
+  for(const e of ents){if(!drawn&&e.y>hero.y)drawHero();if(!vis(e.x,e.y-e.spr.h/2,e.spr.h/2+60))continue;ctx.drawImage(e.spr.cv,e.x-e.spr.w/2,e.y-e.spr.h,e.spr.w,e.spr.h)}
+  if(!drawn)drawHero();
+
+  // particles
+  ctx.textAlign='left';
+  for(const p of parts){const a=1-p.t/p.m;
+    if(p.k==='w'){ctx.font=`400 11px ${FONT}`;ctx.fillStyle=`rgba(200,225,212,${.2*Math.sin(Math.min(1,p.t/p.m*4)*1.57)})`;ctx.fillText(p.s,p.x,p.y+Math.sin(p.t*2+p.ph)*10)}
+    else if(p.k==='l'){ctx.font=`600 10px ${FONT}`;ctx.fillStyle=`rgba(150,200,150,${.55*a})`;ctx.fillText(p.s,p.x,p.y+Math.sin(p.t*3+p.ph)*8)}
+    else{ctx.font=`600 10px ${FONT}`;ctx.fillStyle=p.sm?`rgba(170,180,185,${.5*a})`:`rgba(${240},${(90+130*a)|0},${(40+40*a)|0},${a})`;ctx.fillText(p.s,p.x,p.y)}}
+
+  // labels
+  ctx.textAlign='center';const np=started&&!openPoi?nearPoi():null;
+  for(const p of POIS){if(!vis(p.x,p.y-p.spr.h,120))continue;const ly=p.y-p.spr.h-9,hot=p===hover||p===np;
+    ctx.font=`600 11px ${FONT}`;ctx.lineWidth=3;ctx.strokeStyle='rgba(3,7,8,.85)';ctx.strokeText(p.name,p.x,ly);
+    ctx.fillStyle=hot?'#ffd08a':p.seen?'rgba(170,186,178,.85)':'#e3a04a';ctx.fillText(p.name,p.x,ly);
+    if(!p.seen){ctx.font=`600 17px ${FONT}`;const by=ly-17-Math.abs(Math.sin(t*2.6+p.x))*4;ctx.strokeText('!',p.x,by);ctx.fillStyle='#ffc56e';ctx.fillText('!',p.x,by)}
+    if(p===np&&!hero.moving){ctx.font=`400 10px ${FONT}`;const py=Math.max(p.y,hero.y)+15;ctx.strokeText('click or press E to read',p.x,py);ctx.fillStyle='rgba(217,228,221,.9)';ctx.fillText('click or press E to read',p.x,py)}}
+  ctx.font=`600 10.5px ${FONT}`;ctx.lineWidth=3;ctx.strokeStyle='rgba(3,7,8,.85)';const hy=hero.y-S.hero[0].h*(hero.wet?.72:1)-8;ctx.strokeText('Parzival',hero.x,hy);ctx.fillStyle='#f1f6f2';ctx.fillText('Parzival',hero.x,hy);
+}
+
+/* ============================== boot ============================== */
+let last=0;
+function frame(ms){requestAnimationFrame(frame);if(document.hidden||$('plain').classList.contains('on'))return;const t=ms/1000,dt=Math.min(.05,t-last||.016);last=t;update(dt,t);render(t)}
+function boot(){
+  load();resize();buildGrass();initGL();hero.x=SPAWN.x;hero.y=SPAWN.y;lastDrop={x:hero.x,y:hero.y};
+  renderHud();buildPlain();if(POIS.every(p=>p.seen))showPanel.won=true;
+  requestAnimationFrame(frame);
+}
+const fontsReady=document.fonts&&document.fonts.load?Promise.all([document.fonts.load('600 12px "IBM Plex Mono"'),document.fonts.load('400 12px "IBM Plex Mono"')]):Promise.resolve();
+Promise.race([fontsReady,new Promise(r=>setTimeout(r,1500))]).then(boot,boot);
+})();
+</script>
+</body>
+</html>
