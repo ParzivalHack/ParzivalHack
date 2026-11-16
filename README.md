@@ -61,6 +61,7 @@ This list shows vulnerabilities I discovered in small OSS projects that were fix
 - https://github.com/Sharly-Chess/sharly-chess/security/advisories/GHSA-cx7f-63fm-7mxf
 - https://github.com/Proteobench/ProteoBench/security/advisories/GHSA-p237-rc4h-82vq
 - https://github.com/aioqzone/aioqzone/security/advisories/GHSA-83hv-gxxq-8qx4
+- https://github.com/AppliedIR/sift-mcp/security/advisories/GHSA-56h9-4fjp-j5rm
 
 ---
 
