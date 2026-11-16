@@ -54,10 +54,13 @@ My transition from a **SOC Analyst and Cybersecurity Specialist**, to a CTO, and
 | **Lead Dev and Maintainer of PySpector** | State-of-the-art hybrid Rust/Python graph-based SAST framework, made for CI/CD and large Python codebases. Engineered for high-speed, high-accuracy vulnerability scanning, performing 2.1x faster than Bandit and 3.7x faster than Semgrep. | N/A | [GitHub: PySpector](https://github.com/ParzivalHack/PySpector) |
 
 #### Minor Security Contributions
-This list shows the vulnerabilities i found in really small projects, that got fixed and published, though are too small to request a CVE ID for:
+This list shows vulnerabilities I discovered in small OSS projects that were fixed and publicly disclosed, tho the projects are too small to warrant a CVE ID:
 - https://github.com/rollopack/MikroTik-Mass-Updater/security/advisories/GHSA-76jf-q6rp-xrqp
 - https://github.com/tjcsl/cslbot/security/advisories/GHSA-r2r8-rxr2-5542
 - https://github.com/mosandlt/Bosch-Smart-Home-Camera-Tool-HomeAssistant/security/advisories/GHSA-pqpv-xgfh-pmg9
+- https://github.com/Sharly-Chess/sharly-chess/security/advisories/GHSA-cx7f-63fm-7mxf
+- https://github.com/Proteobench/ProteoBench/security/advisories/GHSA-p237-rc4h-82vq
+- https://github.com/aioqzone/aioqzone/security/advisories/GHSA-83hv-gxxq-8qx4
 
 ---
 
